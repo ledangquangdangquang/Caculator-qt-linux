@@ -41,7 +41,7 @@ static constexpr auto qt_meta_stringdata_CLASSMainWindowENDCLASS = QtMocHelpers:
     "MainWindow",
     "on_key_equals_clicked",
     "",
-    "on_genericButton_clicked",
+    "handleKeyClicked",
     "on_key_clear_clicked"
 );
 #else  // !QT_MOC_HAS_STRING_DATA
@@ -50,7 +50,7 @@ struct qt_meta_stringdata_CLASSMainWindowENDCLASS_t {
     char stringdata0[11];
     char stringdata1[22];
     char stringdata2[1];
-    char stringdata3[25];
+    char stringdata3[17];
     char stringdata4[21];
 };
 #define QT_MOC_LITERAL(ofs, len) \
@@ -60,13 +60,13 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSMainWindowENDCLASS_t qt_meta_st
         QT_MOC_LITERAL(0, 10),  // "MainWindow"
         QT_MOC_LITERAL(11, 21),  // "on_key_equals_clicked"
         QT_MOC_LITERAL(33, 0),  // ""
-        QT_MOC_LITERAL(34, 24),  // "on_genericButton_clicked"
-        QT_MOC_LITERAL(59, 20)   // "on_key_clear_clicked"
+        QT_MOC_LITERAL(34, 16),  // "handleKeyClicked"
+        QT_MOC_LITERAL(51, 20)   // "on_key_clear_clicked"
     },
     "MainWindow",
     "on_key_equals_clicked",
     "",
-    "on_genericButton_clicked",
+    "handleKeyClicked",
     "on_key_clear_clicked"
 };
 #undef QT_MOC_LITERAL
@@ -110,7 +110,7 @@ Q_CONSTINIT const QMetaObject MainWindow::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<MainWindow, std::true_type>,
         // method 'on_key_equals_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'on_genericButton_clicked'
+        // method 'handleKeyClicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_key_clear_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>
@@ -125,7 +125,7 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         (void)_t;
         switch (_id) {
         case 0: _t->on_key_equals_clicked(); break;
-        case 1: _t->on_genericButton_clicked(); break;
+        case 1: _t->handleKeyClicked(); break;
         case 2: _t->on_key_clear_clicked(); break;
         default: ;
         }

@@ -20,7 +20,7 @@ MainWindow::MainWindow(QWidget *parent)
         QString btnName = "key_" + op;
         QPushButton* btn = findChild<QPushButton*>(btnName);
         if (btn) {
-            connect(btn, &QPushButton::clicked, this, &MainWindow::on_genericButton_clicked);
+            connect(btn, &QPushButton::clicked, this, &MainWindow::handleKeyClicked);
         } else {
             qDebug() << "Button not found:" << btnName;
         }
@@ -40,7 +40,7 @@ void MainWindow::on_key_equals_clicked()
 {
     QString expr = ui->plainTextEdit->toPlainText();
     qDebug() << "Entered:" << expr;
-    QRegularExpression re("[a-zA-Z]");
+    static const QRegularExpression re("[a-zA-Z]");
     if (re.match(expr).hasMatch()) {
     ui->plainTextEdit->insertPlainText("\nERORR: not a number");
         return;
@@ -48,7 +48,7 @@ void MainWindow::on_key_equals_clicked()
 
 }
 // Print name of object in plain text when each button cliked
-void MainWindow::on_genericButton_clicked()
+void MainWindow::handleKeyClicked()
 {
     QPushButton* btn = qobject_cast<QPushButton*>(sender());
     if (btn) {

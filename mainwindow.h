@@ -17,7 +17,8 @@ public:
 
 private slots:
     void on_key_equals_clicked();
-    void on_genericButton_clicked();   // slot chung cho các nút 0-9
+//    void on_genericButton_clicked();   // slot chung cho các nút 0-9
+    void handleKeyClicked();
     void on_key_clear_clicked();
 private:
     Ui::MainWindow *ui;
