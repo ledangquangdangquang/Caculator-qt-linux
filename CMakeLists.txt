@@ -25,6 +25,7 @@ set(PROJECT_SOURCES
         operation/muloperation.h	operation/muloperation.cpp
         operation/divoperation.h	operation/divoperation.cpp
         operation/operationfactory.h	operation/operationfactory.cpp
+        operation/sqrtoperation.h	operation/sqrtoperation.cpp
         # Parser
         parser/tokenizer.h	parser/tokenizer.cpp
         parser/shuntingyard.h	parser/shuntingyard.cpp

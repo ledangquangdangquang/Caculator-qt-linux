@@ -7,7 +7,7 @@
 				{
 					"build" : ".",
 					"hasInstallRule" : true,
-					"jsonFile" : "directory-.-Debug-30bee3d6f31147e985c4.json",
+					"jsonFile" : "directory-.-Debug-31e03be1c4b7b3437a36.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.16"
@@ -44,7 +44,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "banPhimHost::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-banPhimHost-Debug-1d4e3b605fcf72cf1885.json",
+					"jsonFile" : "target-banPhimHost-Debug-523cc34013e17e92c2b4.json",
 					"name" : "banPhimHost",
 					"projectIndex" : 0
 				},

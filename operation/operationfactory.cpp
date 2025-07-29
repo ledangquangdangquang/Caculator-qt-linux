@@ -3,15 +3,15 @@
 #include "suboperation.h"
 #include "muloperation.h"
 #include "divoperation.h"
+#include "sqrtoperation.h"
+#include <QString>
 
-std::unique_ptr<Operation> OperationFactory::getOperation(QChar op) {
-    switch (op.unicode()) {
-    case '+': return std::make_unique<AddOperation>();
-    case '-': return std::make_unique<SubOperation>();
-    case '*': return std::make_unique<MulOperation>();
-    case '/': return std::make_unique<DivOperation>();
-    default: return nullptr;
-    }
+std::unique_ptr<Operation> OperationFactory::getOperation(const QString& op) {
+    if (op == QString("+")) return std::make_unique<AddOperation>();
+    else if (op == QString("-")) return std::make_unique<SubOperation>();
+    else if (op == QString("*")) return std::make_unique<MulOperation>();
+    else if (op == QString("/")) return std::make_unique<DivOperation>();
+    else if (op == QString("sqrt")) return std::make_unique<SqrtOperation>();
+    else return nullptr;
+
 }
-
-

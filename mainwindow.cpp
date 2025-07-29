@@ -14,9 +14,6 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    // Set color ui
-//    ui->key_clear->setStyleSheet("background-color: red; color: white;");
-//    ui->key_equals->setStyleSheet("background-color: green; color: white;");
     // Key input handle (done)
     QStringList ops = {"0", "1", "2", "3", "4",
                        "5", "6", "7", "8", "9",
@@ -92,6 +89,7 @@ void MainWindow::on_key_equals_clicked()
     // --------------------------------------------
     expr.replace(QChar(0x00D7), "*"); // × => *
     expr.replace(QChar(0x00F7), "/"); // ÷ => /
+    expr.replace(QChar(0x221A), "sqrt");
 
     // 1. Tokenize
     QVector<QString> tokens = Tokenizer::tokenize(expr);

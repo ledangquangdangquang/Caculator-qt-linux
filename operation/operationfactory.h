@@ -8,7 +8,7 @@
 
 class OperationFactory {
 public:
-    static std::unique_ptr<Operation> getOperation(QChar op);
+    static std::unique_ptr<Operation> getOperation(const QString& op);
 };
 
 #endif // OPERATIONFACTORY_H
