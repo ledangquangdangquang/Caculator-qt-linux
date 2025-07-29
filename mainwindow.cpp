@@ -3,7 +3,6 @@
 #include <QDebug>
 #include <QObject>
 #include <QRegularExpression>
-//#include <QKeyEvent>
 #include <QShortcut>
 #include "MyPlainTextEdit.h"
 
@@ -27,11 +26,10 @@ MainWindow::MainWindow(QWidget *parent)
         QPushButton* btn = findChild<QPushButton*>(btnName);
         connect(btn, &QPushButton::clicked, this, &MainWindow::handleKeyClicked);
     }
-
-    // Kết nối tín hiệu returnPressed() từ MyPlainTextEdit
+    // Handle Enter key, Enter numpad key, Equal key (done)
+    // connect signal returnPressed() from MyPlainTextEdit
     connect(ui->plainTextEdit, &MyPlainTextEdit::returnPressed,
             this, &MainWindow::on_key_equals_clicked);
-
     QShortcut* enterShortcut = new QShortcut(QKeySequence(Qt::Key_Return), this); // real enter
     connect(enterShortcut, &QShortcut::activated, this, &MainWindow::on_key_equals_clicked);
     QShortcut* numpadEnterShortcut = new QShortcut(QKeySequence(Qt::Key_Enter), this); // numpad enter
@@ -51,12 +49,39 @@ void MainWindow::on_key_equals_clicked()
 {
     QString expr = ui->plainTextEdit->toPlainText();
     qDebug() << "Entered:" << expr;
-    static const QRegularExpression re("[a-zA-Z]");
+
+    // 1. Regex ký tự hợp lệ
+    static const QRegularExpression re(R"([^0-9+\-*/%^().,\s𝛑√a-zA-Z])");
     if (re.match(expr).hasMatch()) {
-    ui->plainTextEdit->insertPlainText("\nERORR: not a number");
+        ui->plainTextEdit->appendPlainText("ERROR: contains invalid characters");
         return;
     }
+
+    // 2. Chỉ cho phép từ 'mod'
+    static const QRegularExpression wordRe(R"(\b(?!mod\b)[a-zA-Z]+\b)");
+    if (wordRe.match(expr).hasMatch()) {
+        ui->plainTextEdit->appendPlainText("ERROR: unknown word (only 'mod' allowed)");
+        return;
+    }
+
+    // 3. Kiểm tra có ít nhất một số
+    static const QRegularExpression digitRe(R"(\d)");
+    if (!digitRe.match(expr).hasMatch()) {
+        ui->plainTextEdit->appendPlainText("ERROR: expression must contain number(s)");
+        return;
+    }
+
+    // 4. Kiểm tra ngoặc mở/đóng phải khớp nhau
+    int open = expr.count('(');
+    int close = expr.count(')');
+    if (open != close) {
+        ui->plainTextEdit->appendPlainText("ERROR: unmatched parentheses");
+        return;
+    }
+
+    ui->plainTextEdit->appendPlainText("OK: valid input");
 }
+
 // Print name of object in plain text when each button cliked (done)
 void MainWindow::handleKeyClicked()
 {

@@ -6,7 +6,11 @@ void MyPlainTextEdit::keyPressEvent(QKeyEvent *event)
         || event->key() == Qt::Key_Enter
         || event->key()== Qt::Key_Equal) {
         emit returnPressed();
-    } else {
+    }
+//    else if(event->key() == Qt::){
+
+//    }
+    else {
         QPlainTextEdit::keyPressEvent(event);
     }
 }
