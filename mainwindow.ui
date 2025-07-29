@@ -63,6 +63,20 @@
             <property name="autoFillBackground">
              <bool>false</bool>
             </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton {
+    background-color: red;
+    color: white;
+
+}
+QPushButton:hover {
+    background-color: #cc0000;
+}
+QPushButton:pressed {
+    background-color: #990000;
+}
+</string>
+            </property>
             <property name="text">
              <string>C</string>
             </property>
@@ -718,6 +732,20 @@
             </property>
             <property name="cursor">
              <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton {
+    background-color: green;
+    color: white;
+ 
+}
+QPushButton:hover {
+    background-color: #cc0000;
+}
+QPushButton:pressed {
+    background-color: #990000;
+}
+</string>
             </property>
             <property name="text">
              <string>=</string>

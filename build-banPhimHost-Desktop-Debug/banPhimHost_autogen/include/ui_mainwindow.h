@@ -106,6 +106,18 @@ public:
         key_clear->setSizeIncrement(QSize(0, 0));
         key_clear->setCursor(QCursor(Qt::PointingHandCursor));
         key_clear->setAutoFillBackground(false);
+        key_clear->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"    background-color: red;\n"
+"    color: white;\n"
+"\n"
+"}\n"
+"QPushButton:hover {\n"
+"    background-color: #cc0000;\n"
+"}\n"
+"QPushButton:pressed {\n"
+"    background-color: #990000;\n"
+"}\n"
+""));
 
         horizontalLayout_6->addWidget(key_clear);
 
@@ -351,6 +363,18 @@ public:
         key_equals->setMinimumSize(QSize(0, 0));
         key_equals->setSizeIncrement(QSize(0, 0));
         key_equals->setCursor(QCursor(Qt::PointingHandCursor));
+        key_equals->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"    background-color: green;\n"
+"    color: white;\n"
+" \n"
+"}\n"
+"QPushButton:hover {\n"
+"    background-color: #cc0000;\n"
+"}\n"
+"QPushButton:pressed {\n"
+"    background-color: #990000;\n"
+"}\n"
+""));
 
         gridLayout->addWidget(key_equals, 0, 4, 2, 1);
 

@@ -12,8 +12,8 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     // Set color ui
-    ui->key_clear->setStyleSheet("background-color: red; color: white;");
-    ui->key_equals->setStyleSheet("background-color: green; color: white;");
+//    ui->key_clear->setStyleSheet("background-color: red; color: white;");
+//    ui->key_equals->setStyleSheet("background-color: green; color: white;");
     // Key input handle (done)
     QStringList ops = {"0", "1", "2", "3", "4",
                        "5", "6", "7", "8", "9",
@@ -112,7 +112,7 @@ void MainWindow::on_key_equals_clicked()
         }
 
         double result = operation->execute(a, b);
-        ui->plainTextEdit->appendPlainText("= " + QString::number(result));
+        ui->plainTextEdit->insertPlainText(" = " + QString::number(result));
     } catch (const std::exception& e) {
         ui->plainTextEdit->appendPlainText(QString("ERROR: ") + e.what());
     }
