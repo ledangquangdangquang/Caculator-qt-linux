@@ -27,9 +27,29 @@ QVector<QString> ShuntingYard::toPostfix(const QVector<QString>& tokens) {
     QVector<QString> outputQueue;
     QStack<QString> operatorStack;
 
-    for (const QString& token : tokens) {
+    QString lastToken; // Lưu token trước đó để phát hiện dấu âm
+
+    for (int i = 0; i < tokens.size(); ++i) {
+        QString token = tokens[i];
         if (token.isEmpty())
             continue;
+
+        // Xử lý unary minus: nếu token là "-" và sau đó là số
+        if (token == "-" &&
+            (lastToken.isEmpty() || isOperator(lastToken) || lastToken == "(") &&
+            i + 1 < tokens.size())
+        {
+            QString nextToken = tokens[i + 1];
+            bool isNum;
+            nextToken.toDouble(&isNum);
+            if (isNum) {
+                // Ghép "-" và số thành 1 token: "-5"
+                outputQueue.append("-" + nextToken);
+                i++; // Bỏ qua nextToken
+                lastToken = nextToken; // Đánh dấu đã xử lý số
+                continue;
+            }
+        }
 
         // Nếu token là số
         bool isNumber;
@@ -37,7 +57,7 @@ QVector<QString> ShuntingYard::toPostfix(const QVector<QString>& tokens) {
         if (isNumber) {
             outputQueue.append(token);
         }
-        // Nếu là hàm (sqrt)
+        // Nếu là hàm
         else if (isFunction(token)) {
             operatorStack.push(token);
         }
@@ -65,18 +85,18 @@ QVector<QString> ShuntingYard::toPostfix(const QVector<QString>& tokens) {
             if (!operatorStack.isEmpty() && operatorStack.top() == "(") {
                 operatorStack.pop();
             }
-            // Nếu có hàm trên stack thì lấy ra
             if (!operatorStack.isEmpty() && isFunction(operatorStack.top())) {
                 outputQueue.append(operatorStack.pop());
             }
         }
-        // Các token khác coi như lỗi, bạn có thể thêm kiểm tra nếu muốn
+
+        lastToken = token;
     }
 
-    // Đẩy hết toán tử còn lại vào output
     while (!operatorStack.isEmpty()) {
         outputQueue.append(operatorStack.pop());
     }
 
     return outputQueue;
 }
+
