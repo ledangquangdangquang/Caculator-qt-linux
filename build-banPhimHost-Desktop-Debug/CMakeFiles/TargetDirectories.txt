@@ -1,9 +1,0 @@
-/home/quang/Projects/QT6/banPhimHost/build-banPhimHost-Desktop-Debug/CMakeFiles/banPhimHost.dir
-/home/quang/Projects/QT6/banPhimHost/build-banPhimHost-Desktop-Debug/CMakeFiles/edit_cache.dir
-/home/quang/Projects/QT6/banPhimHost/build-banPhimHost-Desktop-Debug/CMakeFiles/rebuild_cache.dir
-/home/quang/Projects/QT6/banPhimHost/build-banPhimHost-Desktop-Debug/CMakeFiles/list_install_components.dir
-/home/quang/Projects/QT6/banPhimHost/build-banPhimHost-Desktop-Debug/CMakeFiles/install.dir
-/home/quang/Projects/QT6/banPhimHost/build-banPhimHost-Desktop-Debug/CMakeFiles/install/local.dir
-/home/quang/Projects/QT6/banPhimHost/build-banPhimHost-Desktop-Debug/CMakeFiles/install/strip.dir
-/home/quang/Projects/QT6/banPhimHost/build-banPhimHost-Desktop-Debug/CMakeFiles/banPhimHost_autogen_timestamp_deps.dir
-/home/quang/Projects/QT6/banPhimHost/build-banPhimHost-Desktop-Debug/CMakeFiles/banPhimHost_autogen.dir
