@@ -82,7 +82,8 @@ void MainWindow::on_key_equals_clicked()
     }
 
     // 2. Chỉ cho phép từ 'mod'
-    static const QRegularExpression wordRe(R"(\b(?!mod\b)[a-zA-Z]+\b)");
+//    static const QRegularExpression wordRe(R"(\b(?!mod\b)[a-zA-Z]+\b)");
+    static const QRegularExpression wordRe(R"(\b(?!(sin|pi|cos|tan|cot|asin|acos|atan|log|ln|sqrt|abs|mod)\b)[a-zA-Z]+\b)");
     if (wordRe.match(expr).hasMatch()) {
         ui->plainTextEdit->appendPlainText("ERROR: unknown word (only 'mod' allowed)");
         return;

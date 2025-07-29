@@ -17,7 +17,9 @@ set(PROJECT_SOURCES
         mainwindow.cpp
         mainwindow.h
         mainwindow.ui
+        # For enter key
         MyPlainTextEdit.h	MyPlainTextEdit.cpp
+
         # Operation
         operation/operation.h
         operation/addoperation.h	operation/addoperation.cpp
@@ -28,6 +30,14 @@ set(PROJECT_SOURCES
         operation/sqrtoperation.h	operation/sqrtoperation.cpp
         operation/modoperation.h	operation/modoperation.cpp
         operation/powoperation.h	operation/powoperation.cpp
+        operation/sinoperation.h	operation/sinoperation.cpp
+        operation/cosoperation.h 	operation/cosoperation.cpp
+        operation/tanoperation.h 	operation/tanoperation.cpp
+        operation/cotoperation.h 	operation/cotoperation.cpp
+        operation/logoperation.h	operation/logoperation.cpp
+        operation/lnopration.h 		operation/lnopration.cpp
+        operation/absopration.h 	operation/absopration.cpp
+
         # Parser
         parser/tokenizer.h	parser/tokenizer.cpp
         parser/shuntingyard.h	parser/shuntingyard.cpp

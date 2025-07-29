@@ -16,7 +16,7 @@ bool ShuntingYard::isOperator(const QString& token) {
 
 bool ShuntingYard::isFunction(const QString& token) {
     // Ví dụ: chỉ có sqrt
-    return token == "sqrt";
+    return token == "sqrt" || token == "sin";
 }
 
 QVector<QString> ShuntingYard::toPostfix(const QVector<QString>& tokens) {
