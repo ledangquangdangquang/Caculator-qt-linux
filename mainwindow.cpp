@@ -92,6 +92,8 @@ void MainWindow::on_key_equals_clicked()
     expr.replace(QChar(0x00D7), "*"); // × => *
     expr.replace(QChar(0x00F7), "/"); // ÷ => /
     expr.replace(QChar(0x221A), "sqrt");
+    static const QRegularExpression addSqrt(R"((\d)(sqrt))");
+    expr.replace(addSqrt, R"(\1*\2)");
 
     // `%` handle (done)
     static const QRegularExpression addMulPercent(R"((\d)(%))");
