@@ -13,7 +13,7 @@ public:
 
 signals:
     void returnPressed();
-
+    void dotPressed();
 protected:
     void keyPressEvent(QKeyEvent *event) override;
 };

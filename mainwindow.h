@@ -19,6 +19,8 @@ private slots:
     void on_key_equals_clicked();
     void handleKeyClicked();
     void on_key_clear_clicked();
+    void on_key_dot_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

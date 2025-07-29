@@ -305,7 +305,7 @@ public:
         key_3->setText(QCoreApplication::translate("MainWindow", "3", nullptr));
         key_2->setText(QCoreApplication::translate("MainWindow", "2", nullptr));
         key_percent->setText(QCoreApplication::translate("MainWindow", "%", nullptr));
-        key_dot->setText(QCoreApplication::translate("MainWindow", ",", nullptr));
+        key_dot->setText(QCoreApplication::translate("MainWindow", ".", nullptr));
         key_1->setText(QCoreApplication::translate("MainWindow", "1", nullptr));
         key_0->setText(QCoreApplication::translate("MainWindow", "0", nullptr));
         key_sub->setText(QCoreApplication::translate("MainWindow", "-", nullptr));

@@ -36,6 +36,14 @@ MainWindow::MainWindow(QWidget *parent)
     connect(numpadEnterShortcut, &QShortcut::activated, this, &MainWindow::on_key_equals_clicked);
     QShortcut* equalShortcut = new QShortcut(QKeySequence(Qt::Key_Equal), this); // equal key
     connect(equalShortcut, &QShortcut::activated, this, &MainWindow::on_key_equals_clicked);
+
+    // Comma and dot handle
+//    connect(ui->plainTextEdit, &MyPlainTextEdit::dotPressed,
+//            this, &MainWindow::on_key_equals_clicked);
+//    QShortcut* dotShortcut = new QShortcut(QKeySequence(Qt::Key_Period), this); // real enter
+//    connect(dotShortcut, &QShortcut::activated, this, &MainWindow::on_key_dot_clicked);
+//    QShortcut* commaShortcut = new QShortcut(QKeySequence(Qt::Key_Comma), this); // real enter
+//    connect(commaShortcut, &QShortcut::activated, this, &MainWindow::on_key_dot_clicked);
 }
 
 MainWindow::~MainWindow()
@@ -47,6 +55,7 @@ MainWindow::~MainWindow()
 // Event when buttoon "=" cliked (NOT DONE)
 void MainWindow::on_key_equals_clicked()
 {
+    // Check spell (done)
     QString expr = ui->plainTextEdit->toPlainText();
     qDebug() << "Entered:" << expr;
 
@@ -79,7 +88,7 @@ void MainWindow::on_key_equals_clicked()
         return;
     }
 
-    ui->plainTextEdit->appendPlainText("OK: valid input");
+    ui->plainTextEdit->setFocus();
 }
 
 // Print name of object in plain text when each button cliked (done)
@@ -95,12 +104,23 @@ void MainWindow::handleKeyClicked()
         ui->plainTextEdit->insertPlainText("√("); // Thêm luôn dấu mở ngoặc
     } else if (objName == "key_x_squared") {
         ui->plainTextEdit->insertPlainText("^2"); // Dùng ký hiệu mũ
+    } else if (objName == "key_dot") {
+        on_key_dot_clicked();
     } else {
         ui->plainTextEdit->insertPlainText(btnText);
     }
+    ui->plainTextEdit->setFocus();
 }
 // Clear button clicked (done)
 void MainWindow::on_key_clear_clicked()
 {
     ui->plainTextEdit->clear();
+    ui->plainTextEdit->setFocus();
+
 }
+
+void MainWindow::on_key_dot_clicked()
+{
+    ui->plainTextEdit->insertPlainText(".");
+}
+

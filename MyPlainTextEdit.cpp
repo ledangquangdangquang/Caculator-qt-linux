@@ -7,9 +7,10 @@ void MyPlainTextEdit::keyPressEvent(QKeyEvent *event)
         || event->key()== Qt::Key_Equal) {
         emit returnPressed();
     }
-//    else if(event->key() == Qt::){
-
-//    }
+    else if(event->key() == Qt::Key_Period
+        ||event->key() == Qt::Key_Comma ){
+        emit dotPressed();
+    }
     else {
         QPlainTextEdit::keyPressEvent(event);
     }
