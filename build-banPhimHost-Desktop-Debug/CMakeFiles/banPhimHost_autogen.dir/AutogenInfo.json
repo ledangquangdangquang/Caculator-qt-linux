@@ -343,6 +343,12 @@
 			null
 		],
 		[
+			"/home/quang/Projects/QT6/banPhimHost/operation/modoperation.h",
+			"MU",
+			"MTJHVBGFB2/moc_modoperation.cpp",
+			null
+		],
+		[
 			"/home/quang/Projects/QT6/banPhimHost/operation/muloperation.h",
 			"MU",
 			"MTJHVBGFB2/moc_muloperation.cpp",
@@ -464,6 +470,11 @@
 		],
 		[
 			"/home/quang/Projects/QT6/banPhimHost/operation/divoperation.cpp",
+			"MU",
+			null
+		],
+		[
+			"/home/quang/Projects/QT6/banPhimHost/operation/modoperation.cpp",
 			"MU",
 			null
 		],

@@ -139,6 +139,15 @@ build CMakeFiles/banPhimHost.dir/operation/sqrtoperation.cpp.o: CXX_COMPILER__ba
   OBJECT_DIR = CMakeFiles/banPhimHost.dir
   OBJECT_FILE_DIR = CMakeFiles/banPhimHost.dir/operation
 
+build CMakeFiles/banPhimHost.dir/operation/modoperation.cpp.o: CXX_COMPILER__banPhimHost_unscanned_Debug /home/quang/Projects/QT6/banPhimHost/operation/modoperation.cpp || cmake_object_order_depends_target_banPhimHost
+  CONFIG = Debug
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
+  DEP_FILE = CMakeFiles/banPhimHost.dir/operation/modoperation.cpp.o.d
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -fPIC
+  INCLUDES = -I/home/quang/Projects/QT6/banPhimHost/build-banPhimHost-Desktop-Debug/banPhimHost_autogen/include -I/home/quang/Projects/QT6/banPhimHost -isystem /home/quang/qt6/host/include/QtCore -isystem /home/quang/qt6/host/include -isystem /home/quang/qt6/host/mkspecs/linux-g++ -isystem /home/quang/qt6/host/include/QtWidgets -isystem /home/quang/qt6/host/include/QtGui
+  OBJECT_DIR = CMakeFiles/banPhimHost.dir
+  OBJECT_FILE_DIR = CMakeFiles/banPhimHost.dir/operation
+
 build CMakeFiles/banPhimHost.dir/parser/tokenizer.cpp.o: CXX_COMPILER__banPhimHost_unscanned_Debug /home/quang/Projects/QT6/banPhimHost/parser/tokenizer.cpp || cmake_object_order_depends_target_banPhimHost
   CONFIG = Debug
   DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
@@ -174,7 +183,7 @@ build CMakeFiles/banPhimHost.dir/parser/evaluator.cpp.o: CXX_COMPILER__banPhimHo
 #############################################
 # Link the executable banPhimHost
 
-build banPhimHost: CXX_EXECUTABLE_LINKER__banPhimHost_Debug CMakeFiles/banPhimHost.dir/banPhimHost_autogen/mocs_compilation.cpp.o CMakeFiles/banPhimHost.dir/main.cpp.o CMakeFiles/banPhimHost.dir/mainwindow.cpp.o CMakeFiles/banPhimHost.dir/MyPlainTextEdit.cpp.o CMakeFiles/banPhimHost.dir/operation/addoperation.cpp.o CMakeFiles/banPhimHost.dir/operation/suboperation.cpp.o CMakeFiles/banPhimHost.dir/operation/muloperation.cpp.o CMakeFiles/banPhimHost.dir/operation/divoperation.cpp.o CMakeFiles/banPhimHost.dir/operation/operationfactory.cpp.o CMakeFiles/banPhimHost.dir/operation/sqrtoperation.cpp.o CMakeFiles/banPhimHost.dir/parser/tokenizer.cpp.o CMakeFiles/banPhimHost.dir/parser/shuntingyard.cpp.o CMakeFiles/banPhimHost.dir/parser/evaluator.cpp.o | /home/quang/qt6/host/lib/libQt6Widgets.so.6.5.1 /home/quang/qt6/host/lib/libQt6Gui.so.6.5.1 /home/quang/qt6/host/lib/libQt6Core.so.6.5.1 /usr/lib/x86_64-linux-gnu/libGLX.so /usr/lib/x86_64-linux-gnu/libOpenGL.so || banPhimHost_autogen banPhimHost_autogen_timestamp_deps
+build banPhimHost: CXX_EXECUTABLE_LINKER__banPhimHost_Debug CMakeFiles/banPhimHost.dir/banPhimHost_autogen/mocs_compilation.cpp.o CMakeFiles/banPhimHost.dir/main.cpp.o CMakeFiles/banPhimHost.dir/mainwindow.cpp.o CMakeFiles/banPhimHost.dir/MyPlainTextEdit.cpp.o CMakeFiles/banPhimHost.dir/operation/addoperation.cpp.o CMakeFiles/banPhimHost.dir/operation/suboperation.cpp.o CMakeFiles/banPhimHost.dir/operation/muloperation.cpp.o CMakeFiles/banPhimHost.dir/operation/divoperation.cpp.o CMakeFiles/banPhimHost.dir/operation/operationfactory.cpp.o CMakeFiles/banPhimHost.dir/operation/sqrtoperation.cpp.o CMakeFiles/banPhimHost.dir/operation/modoperation.cpp.o CMakeFiles/banPhimHost.dir/parser/tokenizer.cpp.o CMakeFiles/banPhimHost.dir/parser/shuntingyard.cpp.o CMakeFiles/banPhimHost.dir/parser/evaluator.cpp.o | /home/quang/qt6/host/lib/libQt6Widgets.so.6.5.1 /home/quang/qt6/host/lib/libQt6Gui.so.6.5.1 /home/quang/qt6/host/lib/libQt6Core.so.6.5.1 /usr/lib/x86_64-linux-gnu/libGLX.so /usr/lib/x86_64-linux-gnu/libOpenGL.so || banPhimHost_autogen banPhimHost_autogen_timestamp_deps
   CONFIG = Debug
   FLAGS = -DQT_QML_DEBUG -g
   LINK_LIBRARIES = -Wl,-rpath,/home/quang/qt6/host/lib:  /home/quang/qt6/host/lib/libQt6Widgets.so.6.5.1  /home/quang/qt6/host/lib/libQt6Gui.so.6.5.1  /home/quang/qt6/host/lib/libQt6Core.so.6.5.1  /usr/lib/x86_64-linux-gnu/libGLX.so  /usr/lib/x86_64-linux-gnu/libOpenGL.so

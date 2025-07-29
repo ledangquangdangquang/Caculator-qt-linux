@@ -4,6 +4,8 @@
 #include <QObject>
 #include <QRegularExpression>
 #include <QShortcut>
+#include <cmath>
+
 #include "MyPlainTextEdit.h"
 #include "operation/operationfactory.h"
 #include "parser/tokenizer.h"
@@ -73,7 +75,7 @@ void MainWindow::on_key_equals_clicked()
     }
 
     // 3. Có ít nhất một chữ số
-    static const QRegularExpression digitRe(R"(\d)");
+    static const QRegularExpression digitRe(R"(\d|𝛑)");
     if (!digitRe.match(expr).hasMatch()) {
         ui->plainTextEdit->appendPlainText("ERROR: expression must contain number(s)");
         return;
@@ -91,7 +93,21 @@ void MainWindow::on_key_equals_clicked()
     expr.replace(QChar(0x00F7), "/"); // ÷ => /
     expr.replace(QChar(0x221A), "sqrt");
 
-    // 1. Tokenize
+// Nếu chỉ gõ đúng mỗi ký tự 𝛑 thì gán luôn
+if (expr.trimmed() == "𝛑") {
+    expr = QString::number(M_PI);
+} else {
+    // Bước 1: chuẩn hóa ký hiệu π/𝛑 thành "pi"
+    expr.replace("𝛑", "pi");
+
+    // Bước 2: thêm * ngầm giữa số và pi
+    static const QRegularExpression addMul(R"((\d)(pi))");
+    expr.replace(addMul, R"(\1*\2)");
+
+    // Bước 3: thay "pi" thành giá trị
+    expr.replace("pi", QString::number(M_PI));
+}
+       // 1. Tokenize
     QVector<QString> tokens = Tokenizer::tokenize(expr);
     qDebug() << "Tokens:" << tokens;
 
@@ -108,7 +124,7 @@ void MainWindow::on_key_equals_clicked()
     }
 
     // Hiển thị kết quả
-    ui->plainTextEdit->appendPlainText("= " + QString::number(result));
+    ui->plainTextEdit->insertPlainText(" = " + QString::number(result));
     ui->plainTextEdit->setFocus();
 }
 

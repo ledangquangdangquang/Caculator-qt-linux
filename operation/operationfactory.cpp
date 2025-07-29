@@ -4,6 +4,7 @@
 #include "muloperation.h"
 #include "divoperation.h"
 #include "sqrtoperation.h"
+#include "modoperation.h"
 #include <QString>
 
 std::unique_ptr<Operation> OperationFactory::getOperation(const QString& op) {
@@ -12,6 +13,6 @@ std::unique_ptr<Operation> OperationFactory::getOperation(const QString& op) {
     else if (op == QString("*")) return std::make_unique<MulOperation>();
     else if (op == QString("/")) return std::make_unique<DivOperation>();
     else if (op == QString("sqrt")) return std::make_unique<SqrtOperation>();
+    else if (op == QString("mod")) return std::make_unique<ModOperation>();
     else return nullptr;
-
 }

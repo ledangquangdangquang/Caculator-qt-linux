@@ -32,7 +32,7 @@ bool Evaluator::evaluate(const QVector<QString>& postfixTokens, double& result) 
             double b = stack.pop();
             double a = stack.pop();
 
-            auto operation = OperationFactory::getOperation(token[0]);
+            auto operation = OperationFactory::getOperation(token);
             if (!operation) {
                 qWarning() << "Error: unknown operator" << token;
                 return false;

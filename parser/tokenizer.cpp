@@ -4,30 +4,39 @@
 QVector<QString> Tokenizer::tokenize(const QString& expr) {
     QVector<QString> tokens;
     QString current;
-    for (int i = 0; i < expr.length(); ++i) {
+
+    int len = expr.length();
+    int i = 0;
+    while (i < len) {
         QChar ch = expr[i];
         if (ch.isDigit() || ch == '.') {
-            current += ch;
-        } else {
-            if (!current.isEmpty()) {
-                tokens.append(current);
-                current.clear();
+            // Lấy số, bao gồm dấu chấm thập phân
+            current.clear();
+            while (i < len && (expr[i].isDigit() || expr[i] == '.')) {
+                current += expr[i];
+                ++i;
             }
-            if (ch.isSpace()) continue;
-            if (ch.isLetter()) {
-                QString func;
-                while (i < expr.length() && expr[i].isLetter()) {
-                    func += expr[i++];
-                }
-                --i;
-                tokens.append(func); // ex: sqrt
-            } else {
-                tokens.append(QString(ch));
+            tokens.append(current);
+            continue;  // vì i đã tăng rồi, tiếp tục vòng while
+        }
+        else if (ch.isSpace()) {
+            ++i; // bỏ qua khoảng trắng
+        }
+        else if (ch.isLetter()) {
+            // Lấy toàn bộ chuỗi chữ liên tiếp (ví dụ "mod", "sqrt")
+            current.clear();
+            while (i < len && expr[i].isLetter()) {
+                current += expr[i];
+                ++i;
             }
+            tokens.append(current);
+        }
+        else {
+            // Ký tự đặc biệt như + - * / ( ) ...
+            tokens.append(QString(ch));
+            ++i;
         }
     }
-    if (!current.isEmpty()) {
-        tokens.append(current);
-    }
+
     return tokens;
 }

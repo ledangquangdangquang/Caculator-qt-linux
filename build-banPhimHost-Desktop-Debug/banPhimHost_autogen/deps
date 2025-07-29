@@ -13,6 +13,8 @@ banPhimHost_autogen/timestamp: \
 	/home/quang/Projects/QT6/banPhimHost/operation/addoperation.h \
 	/home/quang/Projects/QT6/banPhimHost/operation/divoperation.cpp \
 	/home/quang/Projects/QT6/banPhimHost/operation/divoperation.h \
+	/home/quang/Projects/QT6/banPhimHost/operation/modoperation.cpp \
+	/home/quang/Projects/QT6/banPhimHost/operation/modoperation.h \
 	/home/quang/Projects/QT6/banPhimHost/operation/muloperation.cpp \
 	/home/quang/Projects/QT6/banPhimHost/operation/muloperation.h \
 	/home/quang/Projects/QT6/banPhimHost/operation/operation.h \
