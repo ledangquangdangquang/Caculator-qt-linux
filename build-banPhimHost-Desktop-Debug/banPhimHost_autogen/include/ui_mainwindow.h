@@ -16,6 +16,7 @@
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
+#include <QtWidgets/QPlainTextEdit>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QVBoxLayout>
@@ -30,6 +31,7 @@ public:
     QWidget *centralwidget;
     QVBoxLayout *verticalLayout_3;
     QVBoxLayout *verticalLayout_2;
+    QPlainTextEdit *plainHistory;
     MyPlainTextEdit *plainTextEdit;
     QVBoxLayout *verticalLayout;
     QHBoxLayout *horizontalLayout_6;
@@ -67,7 +69,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
-        MainWindow->resize(448, 446);
+        MainWindow->resize(448, 630);
         QFont font;
         font.setPointSize(13);
         MainWindow->setFont(font);
@@ -85,6 +87,13 @@ public:
         verticalLayout_3->setObjectName("verticalLayout_3");
         verticalLayout_2 = new QVBoxLayout();
         verticalLayout_2->setObjectName("verticalLayout_2");
+        plainHistory = new QPlainTextEdit(centralwidget);
+        plainHistory->setObjectName("plainHistory");
+        plainHistory->viewport()->setProperty("cursor", QVariant(QCursor(Qt::ArrowCursor)));
+        plainHistory->setFocusPolicy(Qt::NoFocus);
+
+        verticalLayout_2->addWidget(plainHistory);
+
         plainTextEdit = new MyPlainTextEdit(centralwidget);
         plainTextEdit->setObjectName("plainTextEdit");
         plainTextEdit->viewport()->setProperty("cursor", QVariant(QCursor(Qt::IBeamCursor)));
@@ -382,6 +391,9 @@ public:
 
         verticalLayout_2->addLayout(verticalLayout);
 
+        verticalLayout_2->setStretch(0, 7);
+        verticalLayout_2->setStretch(1, 1);
+        verticalLayout_2->setStretch(2, 1);
 
         verticalLayout_3->addLayout(verticalLayout_2);
 
@@ -401,7 +413,7 @@ public:
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "Caculator", nullptr));
+        MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "Calculator", nullptr));
         key_clear->setText(QCoreApplication::translate("MainWindow", "C", nullptr));
         key_sym9->setText(QCoreApplication::translate("MainWindow", "(", nullptr));
         key_sym0->setText(QCoreApplication::translate("MainWindow", ")", nullptr));

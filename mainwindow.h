@@ -23,5 +23,8 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+    double lastResult = 0;
+    bool hasLastResult = false;
 };
+
 #endif // MAINWINDOW_H

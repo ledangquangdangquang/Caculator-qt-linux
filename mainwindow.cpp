@@ -131,7 +131,10 @@ void MainWindow::on_key_equals_clicked()
     }
 
     // Hiển thị kết quả
-    ui->plainTextEdit->insertPlainText(" = " + QString::number(result));
+    ui->plainHistory->appendPlainText(expr + " = " + QString::number(result));
+
+    ui->plainTextEdit->clear();
+    ui->plainTextEdit->insertPlainText(QString::number(result));
     ui->plainTextEdit->setFocus();
 }
 
@@ -168,4 +171,3 @@ void MainWindow::dotHandle()
 {
     ui->plainTextEdit->insertPlainText(".");
 }
-

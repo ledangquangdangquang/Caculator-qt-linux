@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>448</width>
-    <height>446</height>
+    <height>630</height>
    </rect>
   </property>
   <property name="font">
@@ -16,7 +16,7 @@
    </font>
   </property>
   <property name="windowTitle">
-   <string>Caculator</string>
+   <string>Calculator</string>
   </property>
   <property name="windowIcon">
    <iconset theme="utilities-system-monitor">
@@ -25,7 +25,17 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout_3">
     <item>
-     <layout class="QVBoxLayout" name="verticalLayout_2">
+     <layout class="QVBoxLayout" name="verticalLayout_2" stretch="7,1,1">
+      <item>
+       <widget class="QPlainTextEdit" name="plainHistory">
+        <property name="cursor" stdset="0">
+         <cursorShape>ArrowCursor</cursorShape>
+        </property>
+        <property name="focusPolicy">
+         <enum>Qt::NoFocus</enum>
+        </property>
+       </widget>
+      </item>
       <item>
        <widget class="MyPlainTextEdit" name="plainTextEdit">
         <property name="cursor" stdset="0">
