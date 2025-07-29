@@ -6,6 +6,9 @@
 #include <QShortcut>
 #include "MyPlainTextEdit.h"
 #include "operation/operationfactory.h"
+#include "parser/tokenizer.h"
+#include "parser/shuntingyard.h"
+#include "parser/evaluator.h"
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -86,37 +89,28 @@ void MainWindow::on_key_equals_clicked()
         ui->plainTextEdit->appendPlainText("ERROR: unmatched parentheses");
         return;
     }
+    // --------------------------------------------
+    expr.replace(QChar(0x00D7), "*"); // × => *
+    expr.replace(QChar(0x00F7), "/"); // ÷ => /
 
-    // ✅ Chuyển × ÷ thành * /
-    expr.replace(QChar(0x00D7), "*"); // ×
-    expr.replace(QChar(0x00F7), "/"); // ÷
+    // 1. Tokenize
+    QVector<QString> tokens = Tokenizer::tokenize(expr);
+    qDebug() << "Tokens:" << tokens;
 
-    // ✅ Giản lược: xử lý biểu thức dạng đơn giản "a op b"
-    QRegularExpression simpleRe(R"(\s*(-?\d+(\.\d+)?)\s*([+\-*/])\s*(-?\d+(\.\d+)?)\s*)");
-    QRegularExpressionMatch match = simpleRe.match(expr);
+    // 2. Chuyển sang postfix
+    QVector<QString> postfix = ShuntingYard::toPostfix(tokens);
+    qDebug() << "Postfix:" << postfix;
 
-    if (!match.hasMatch()) {
-        ui->plainTextEdit->appendPlainText("ERROR: Only simple format 'a op b' is supported for now.");
+    // 3. Tính toán
+    double result = 0;
+    bool ok = Evaluator::evaluate(postfix, result);
+    if (!ok) {
+        ui->plainTextEdit->appendPlainText("ERROR: Calculation failed");
         return;
     }
 
-    double a = match.captured(1).toDouble();
-    QChar op = match.captured(3).at(0);
-    double b = match.captured(4).toDouble();
-
-    try {
-        auto operation = OperationFactory::getOperation(op);
-        if (!operation) {
-            ui->plainTextEdit->appendPlainText("ERROR: Unsupported operator");
-            return;
-        }
-
-        double result = operation->execute(a, b);
-        ui->plainTextEdit->insertPlainText(" = " + QString::number(result));
-    } catch (const std::exception& e) {
-        ui->plainTextEdit->appendPlainText(QString("ERROR: ") + e.what());
-    }
-
+    // Hiển thị kết quả
+    ui->plainTextEdit->appendPlainText("= " + QString::number(result));
     ui->plainTextEdit->setFocus();
 }
 

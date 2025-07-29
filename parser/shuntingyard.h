@@ -1,11 +1,22 @@
 #ifndef SHUNTINGYARD_H
 #define SHUNTINGYARD_H
 
+#include <QString>
+#include <QVector>
+#include <QMap>
 
-class shuntingyard
-{
+class ShuntingYard {
 public:
-    shuntingyard();
+    // Chuyển biểu thức token (infix) thành postfix (hậu tố)
+    static QVector<QString> toPostfix(const QVector<QString>& tokens);
+
+private:
+    // Trợ giúp: xác định độ ưu tiên của toán tử
+    static int precedence(const QString& op);
+    // Kiểm tra token là toán tử
+    static bool isOperator(const QString& token);
+    // Kiểm tra token là hàm (ví dụ "sqrt")
+    static bool isFunction(const QString& token);
 };
 
 #endif // SHUNTINGYARD_H
