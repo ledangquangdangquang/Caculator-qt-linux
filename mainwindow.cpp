@@ -37,7 +37,7 @@ MainWindow::MainWindow(QWidget *parent)
     QShortcut* equalShortcut = new QShortcut(QKeySequence(Qt::Key_Equal), this); // equal key
     connect(equalShortcut, &QShortcut::activated, this, &MainWindow::on_key_equals_clicked);
 
-    // Comma and dot handle
+    // Comma and dot handle (NOT DONE)
 //    connect(ui->plainTextEdit, &MyPlainTextEdit::dotPressed,
 //            this, &MainWindow::on_key_equals_clicked);
 //    QShortcut* dotShortcut = new QShortcut(QKeySequence(Qt::Key_Period), this); // real enter
