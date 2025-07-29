@@ -20,6 +20,8 @@ banPhimHost_autogen/timestamp: \
 	/home/quang/Projects/QT6/banPhimHost/operation/operation.h \
 	/home/quang/Projects/QT6/banPhimHost/operation/operationfactory.cpp \
 	/home/quang/Projects/QT6/banPhimHost/operation/operationfactory.h \
+	/home/quang/Projects/QT6/banPhimHost/operation/powoperation.cpp \
+	/home/quang/Projects/QT6/banPhimHost/operation/powoperation.h \
 	/home/quang/Projects/QT6/banPhimHost/operation/sqrtoperation.cpp \
 	/home/quang/Projects/QT6/banPhimHost/operation/sqrtoperation.h \
 	/home/quang/Projects/QT6/banPhimHost/operation/suboperation.cpp \

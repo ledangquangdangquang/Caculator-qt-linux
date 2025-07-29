@@ -367,6 +367,12 @@
 			null
 		],
 		[
+			"/home/quang/Projects/QT6/banPhimHost/operation/powoperation.h",
+			"MU",
+			"MTJHVBGFB2/moc_powoperation.cpp",
+			null
+		],
+		[
 			"/home/quang/Projects/QT6/banPhimHost/operation/sqrtoperation.h",
 			"MU",
 			"MTJHVBGFB2/moc_sqrtoperation.cpp",
@@ -485,6 +491,11 @@
 		],
 		[
 			"/home/quang/Projects/QT6/banPhimHost/operation/operationfactory.cpp",
+			"MU",
+			null
+		],
+		[
+			"/home/quang/Projects/QT6/banPhimHost/operation/powoperation.cpp",
 			"MU",
 			null
 		],

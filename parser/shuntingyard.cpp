@@ -4,13 +4,14 @@
 
 int ShuntingYard::precedence(const QString& op) {
     if (op == "+" || op == "-") return 1;
-    if (op == "*" || op == "/" || op == "mod") return 2;
+    if (op == "*" || op == "/" || op == "mod" || op == "^") return 2;
     // Nếu bạn muốn thêm operator khác, nâng cấp ở đây
     return 0;
 }
 
 bool ShuntingYard::isOperator(const QString& token) {
-    return token == "+" || token == "-" || token == "*" || token == "/"  || token == "mod";
+    return token == "+" || token == "-" || token == "*" || token == "/"  || token == "mod"
+        || token == "^";
 }
 
 bool ShuntingYard::isFunction(const QString& token) {

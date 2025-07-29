@@ -93,20 +93,25 @@ void MainWindow::on_key_equals_clicked()
     expr.replace(QChar(0x00F7), "/"); // ÷ => /
     expr.replace(QChar(0x221A), "sqrt");
 
-// Nếu chỉ gõ đúng mỗi ký tự 𝛑 thì gán luôn
-if (expr.trimmed() == "𝛑") {
-    expr = QString::number(M_PI);
-} else {
-    // Bước 1: chuẩn hóa ký hiệu π/𝛑 thành "pi"
-    expr.replace("𝛑", "pi");
+    // `%` handle (done)
+    static const QRegularExpression addMulPercent(R"((\d)(%))");
+    expr.replace(addMulPercent, R"(\1*\2)");
+    expr.replace("%", "0.01");
 
-    // Bước 2: thêm * ngầm giữa số và pi
-    static const QRegularExpression addMul(R"((\d)(pi))");
-    expr.replace(addMul, R"(\1*\2)");
+    // Pi handle (done)
+    if (expr.trimmed() == "𝛑") {
+        expr = QString::number(M_PI);
+    } else {
+        // Bước 1: chuẩn hóa ký hiệu π/𝛑 thành "pi"
+        expr.replace("𝛑", "pi");
 
-    // Bước 3: thay "pi" thành giá trị
-    expr.replace("pi", QString::number(M_PI));
-}
+        // Bước 2: thêm * ngầm giữa số và pi
+        static const QRegularExpression addMul(R"((\d)(pi))");
+        expr.replace(addMul, R"(\1*\2)");
+
+        // Bước 3: thay "pi" thành giá trị
+        expr.replace("pi", QString::number(M_PI));
+    }
        // 1. Tokenize
     QVector<QString> tokens = Tokenizer::tokenize(expr);
     qDebug() << "Tokens:" << tokens;
