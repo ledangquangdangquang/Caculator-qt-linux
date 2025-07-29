@@ -32,9 +32,12 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->plainTextEdit, &MyPlainTextEdit::returnPressed,
             this, &MainWindow::on_key_equals_clicked);
 
-    // Nếu muốn thêm QShortcut cho Enter từ các phần khác (ví dụ không focus plainTextEdit)
-    QShortcut* enterShortcut = new QShortcut(QKeySequence(Qt::Key_Return), this);
+    QShortcut* enterShortcut = new QShortcut(QKeySequence(Qt::Key_Return), this); // real enter
     connect(enterShortcut, &QShortcut::activated, this, &MainWindow::on_key_equals_clicked);
+    QShortcut* numpadEnterShortcut = new QShortcut(QKeySequence(Qt::Key_Enter), this); // numpad enter
+    connect(numpadEnterShortcut, &QShortcut::activated, this, &MainWindow::on_key_equals_clicked);
+    QShortcut* equalShortcut = new QShortcut(QKeySequence(Qt::Key_Equal), this); // equal key
+    connect(equalShortcut, &QShortcut::activated, this, &MainWindow::on_key_equals_clicked);
 }
 
 MainWindow::~MainWindow()
@@ -43,7 +46,7 @@ MainWindow::~MainWindow()
 }
 // Enter = Button "="
 // Fillter no a number (done)
-// Event when buttoon "=" cliked (done)
+// Event when buttoon "=" cliked (NOT DONE)
 void MainWindow::on_key_equals_clicked()
 {
     QString expr = ui->plainTextEdit->toPlainText();
