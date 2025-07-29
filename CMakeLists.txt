@@ -19,6 +19,18 @@ set(PROJECT_SOURCES
         mainwindow.ui
         MyPlainTextEdit.h
         MyPlainTextEdit.cpp
+        operation/addoperation.cpp
+        operation/suboperation.cpp
+        operation/muloperation.cpp
+        operation/divoperation.cpp
+        operation/operationfactory.cpp
+        operation/addoperation.h
+        operation/suboperation.h
+        operation/muloperation.h
+        operation/divoperation.h
+        operation/operationfactory.h
+        operation/operation.h
+
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

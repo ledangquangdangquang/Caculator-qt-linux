@@ -9,6 +9,17 @@ banPhimHost_autogen/timestamp: \
 	/home/quang/Projects/QT6/banPhimHost/main.cpp \
 	/home/quang/Projects/QT6/banPhimHost/mainwindow.cpp \
 	/home/quang/Projects/QT6/banPhimHost/mainwindow.h \
+	/home/quang/Projects/QT6/banPhimHost/operation/addoperation.cpp \
+	/home/quang/Projects/QT6/banPhimHost/operation/addoperation.h \
+	/home/quang/Projects/QT6/banPhimHost/operation/divoperation.cpp \
+	/home/quang/Projects/QT6/banPhimHost/operation/divoperation.h \
+	/home/quang/Projects/QT6/banPhimHost/operation/muloperation.cpp \
+	/home/quang/Projects/QT6/banPhimHost/operation/muloperation.h \
+	/home/quang/Projects/QT6/banPhimHost/operation/operation.h \
+	/home/quang/Projects/QT6/banPhimHost/operation/operationfactory.cpp \
+	/home/quang/Projects/QT6/banPhimHost/operation/operationfactory.h \
+	/home/quang/Projects/QT6/banPhimHost/operation/suboperation.cpp \
+	/home/quang/Projects/QT6/banPhimHost/operation/suboperation.h \
 	/home/quang/qt6/host/include/QtCore/QList \
 	/home/quang/qt6/host/include/QtCore/QObject \
 	/home/quang/qt6/host/include/QtCore/QRect \

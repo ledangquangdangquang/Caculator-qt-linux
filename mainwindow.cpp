@@ -5,7 +5,7 @@
 #include <QRegularExpression>
 #include <QShortcut>
 #include "MyPlainTextEdit.h"
-
+#include "operation/operationfactory.h"
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -55,7 +55,6 @@ MainWindow::~MainWindow()
 // Event when buttoon "=" cliked (NOT DONE)
 void MainWindow::on_key_equals_clicked()
 {
-    // Check spell (done)
     QString expr = ui->plainTextEdit->toPlainText();
     qDebug() << "Entered:" << expr;
 
@@ -73,14 +72,14 @@ void MainWindow::on_key_equals_clicked()
         return;
     }
 
-    // 3. Kiểm tra có ít nhất một số
+    // 3. Có ít nhất một chữ số
     static const QRegularExpression digitRe(R"(\d)");
     if (!digitRe.match(expr).hasMatch()) {
         ui->plainTextEdit->appendPlainText("ERROR: expression must contain number(s)");
         return;
     }
 
-    // 4. Kiểm tra ngoặc mở/đóng phải khớp nhau
+    // 4. Kiểm tra dấu ngoặc
     int open = expr.count('(');
     int close = expr.count(')');
     if (open != close) {
@@ -88,8 +87,39 @@ void MainWindow::on_key_equals_clicked()
         return;
     }
 
+    // ✅ Chuyển × ÷ thành * /
+    expr.replace(QChar(0x00D7), "*"); // ×
+    expr.replace(QChar(0x00F7), "/"); // ÷
+
+    // ✅ Giản lược: xử lý biểu thức dạng đơn giản "a op b"
+    QRegularExpression simpleRe(R"(\s*(-?\d+(\.\d+)?)\s*([+\-*/])\s*(-?\d+(\.\d+)?)\s*)");
+    QRegularExpressionMatch match = simpleRe.match(expr);
+
+    if (!match.hasMatch()) {
+        ui->plainTextEdit->appendPlainText("ERROR: Only simple format 'a op b' is supported for now.");
+        return;
+    }
+
+    double a = match.captured(1).toDouble();
+    QChar op = match.captured(3).at(0);
+    double b = match.captured(4).toDouble();
+
+    try {
+        auto operation = OperationFactory::getOperation(op);
+        if (!operation) {
+            ui->plainTextEdit->appendPlainText("ERROR: Unsupported operator");
+            return;
+        }
+
+        double result = operation->execute(a, b);
+        ui->plainTextEdit->appendPlainText("= " + QString::number(result));
+    } catch (const std::exception& e) {
+        ui->plainTextEdit->appendPlainText(QString("ERROR: ") + e.what());
+    }
+
     ui->plainTextEdit->setFocus();
 }
+
 
 // Print name of object in plain text when each button cliked (done)
 void MainWindow::handleKeyClicked()

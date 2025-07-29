@@ -329,6 +329,42 @@
 			"MU",
 			"EWIEGA46WW/moc_mainwindow.cpp",
 			null
+		],
+		[
+			"/home/quang/Projects/QT6/banPhimHost/operation/addoperation.h",
+			"MU",
+			"MTJHVBGFB2/moc_addoperation.cpp",
+			null
+		],
+		[
+			"/home/quang/Projects/QT6/banPhimHost/operation/divoperation.h",
+			"MU",
+			"MTJHVBGFB2/moc_divoperation.cpp",
+			null
+		],
+		[
+			"/home/quang/Projects/QT6/banPhimHost/operation/muloperation.h",
+			"MU",
+			"MTJHVBGFB2/moc_muloperation.cpp",
+			null
+		],
+		[
+			"/home/quang/Projects/QT6/banPhimHost/operation/operation.h",
+			"MU",
+			"MTJHVBGFB2/moc_operation.cpp",
+			null
+		],
+		[
+			"/home/quang/Projects/QT6/banPhimHost/operation/operationfactory.h",
+			"MU",
+			"MTJHVBGFB2/moc_operationfactory.cpp",
+			null
+		],
+		[
+			"/home/quang/Projects/QT6/banPhimHost/operation/suboperation.h",
+			"MU",
+			"MTJHVBGFB2/moc_suboperation.cpp",
+			null
 		]
 	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
@@ -396,7 +432,32 @@
 			null
 		],
 		[ "/home/quang/Projects/QT6/banPhimHost/main.cpp", "MU", null ],
-		[ "/home/quang/Projects/QT6/banPhimHost/mainwindow.cpp", "MU", null ]
+		[ "/home/quang/Projects/QT6/banPhimHost/mainwindow.cpp", "MU", null ],
+		[
+			"/home/quang/Projects/QT6/banPhimHost/operation/addoperation.cpp",
+			"MU",
+			null
+		],
+		[
+			"/home/quang/Projects/QT6/banPhimHost/operation/divoperation.cpp",
+			"MU",
+			null
+		],
+		[
+			"/home/quang/Projects/QT6/banPhimHost/operation/muloperation.cpp",
+			"MU",
+			null
+		],
+		[
+			"/home/quang/Projects/QT6/banPhimHost/operation/operationfactory.cpp",
+			"MU",
+			null
+		],
+		[
+			"/home/quang/Projects/QT6/banPhimHost/operation/suboperation.cpp",
+			"MU",
+			null
+		]
 	],
 	"UIC_OPTIONS" : [],
 	"UIC_SEARCH_PATHS" : [],
