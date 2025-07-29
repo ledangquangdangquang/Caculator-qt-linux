@@ -44,24 +44,24 @@ bool Evaluator::evaluate(const QVector<QString>& postfixTokens, double& result) 
             } else if (token == "tan") {
                 res = std::round(std::tan(a * DEG2RAD) * scale) / scale;
             } else if (token == "cot") {
-                double tanVal = std::round(std::tan(a * DEG2RAD) * scale) / scale;
+                double tanVal = std::tan(a * DEG2RAD);
                 if (tanVal == 0) {
                     qWarning() << "Error: cotangent undefined (tan = 0)";
                     return false;
                 }
-                res = 1.0 / tanVal;
+                res = std::round(1.0 / tanVal * scale) / scale;
             } else if (token == "log") {
                 if (a <= 0) {
                     qWarning() << "Error: log of non-positive number";
                     return false;
                 }
-                res = std::round(std::log10(a * DEG2RAD) * scale) / scale;
+                res = std::round(std::log10(a) * scale) / scale;
             } else if (token == "ln") {
                 if (a <= 0) {
                     qWarning() << "Error: ln of non-positive number";
                     return false;
                 }
-                res = std::round(std::log(a * DEG2RAD) * scale) / scale;
+                res = std::round(std::log(a) * scale) / scale;
             } else if (token == "abs") {
                 res = std::fabs(a);
             } else {

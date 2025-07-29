@@ -2,10 +2,11 @@
 #define LOGOPERATION_H
 
 
-class logoperation
+#include "operation.h"
+class LogOperation : public Operation
 {
 public:
-    logoperation();
+    double execute(double a, double b = 0) const override;
 };
 
 #endif // LOGOPERATION_H

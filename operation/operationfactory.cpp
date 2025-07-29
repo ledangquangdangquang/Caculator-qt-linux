@@ -7,6 +7,12 @@
 #include "modoperation.h" // mod
 #include "powoperation.h" // ^
 #include "sinoperation.h" // sin
+#include "cosoperation.h" // cos
+#include "tanoperation.h" // tan
+#include "cotoperation.h" // cotan
+#include "logoperation.h" // log
+#include "lnoperation.h" //  ln
+#include "absoperation.h" //  abs
 #include <QString>
 
 std::unique_ptr<Operation> OperationFactory::getOperation(const QString& op) {
@@ -18,5 +24,11 @@ std::unique_ptr<Operation> OperationFactory::getOperation(const QString& op) {
     else if (op == QString("mod")) return std::make_unique<ModOperation>();
     else if (op == QString("^")) return std::make_unique<PowOperation>();
     else if (op == QString("sin")) return std::make_unique<SinOperation>();
+    else if (op == QString("cos")) return std::make_unique<CosOperation>();
+    else if (op == QString("tan")) return std::make_unique<TanOperation>();
+    else if (op == QString("cot")) return std::make_unique<CotOperation>();
+    else if (op == QString("log")) return std::make_unique<LogOperation>();
+    else if (op == QString("ln")) return std::make_unique<LnOperation>();
+    else if (op == QString("abs")) return std::make_unique<AbsOperation>();
     else return nullptr;
 }

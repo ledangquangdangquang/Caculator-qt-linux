@@ -1,6 +1,8 @@
 #include "cotoperation.h"
+#include <cmath>
+#include <stdexcept>
 
-cotoperation::cotoperation()
-{
-
+double CotOperation::execute(double a, double /*b*/) const {
+    return 1/std::tan(a);
 }
+

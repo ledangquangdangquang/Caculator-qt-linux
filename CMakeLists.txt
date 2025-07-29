@@ -35,8 +35,8 @@ set(PROJECT_SOURCES
         operation/tanoperation.h 	operation/tanoperation.cpp
         operation/cotoperation.h 	operation/cotoperation.cpp
         operation/logoperation.h	operation/logoperation.cpp
-        operation/lnopration.h 		operation/lnopration.cpp
-        operation/absopration.h 	operation/absopration.cpp
+        operation/lnoperation.h 	operation/lnoperation.cpp
+        operation/absoperation.h 	operation/absoperation.cpp
 
         # Parser
         parser/tokenizer.h	parser/tokenizer.cpp

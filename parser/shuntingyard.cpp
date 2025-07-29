@@ -10,13 +10,17 @@ int ShuntingYard::precedence(const QString& op) {
 }
 
 bool ShuntingYard::isOperator(const QString& token) {
-    return token == "+" || token == "-" || token == "*" || token == "/"  || token == "mod"
-        || token == "^";
+    return token == "+" || token == "-" ||
+           token == "*" || token == "/"  ||
+           token == "mod"|| token == "^";
 }
 
 bool ShuntingYard::isFunction(const QString& token) {
     // Ví dụ: chỉ có sqrt
-    return token == "sqrt" || token == "sin";
+    return token == "sqrt" || token == "sin" ||
+           token == "cos" || token == "tan" ||
+           token == "cot" || token == "log" ||
+           token == "ln" || token == "abs" ;
 }
 
 QVector<QString> ShuntingYard::toPostfix(const QVector<QString>& tokens) {

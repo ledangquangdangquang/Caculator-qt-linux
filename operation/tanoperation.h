@@ -1,11 +1,12 @@
 #ifndef TANOPERATION_H
 #define TANOPERATION_H
 
+#include "operation.h"
 
-class tanoperation
+class TanOperation : public Operation
 {
 public:
-    tanoperation();
+    double execute(double a, double b = 0) const override;
 };
 
 #endif // TANOPERATION_H
