@@ -1,10 +1,12 @@
 # ninja log v5
-0	480	1753755223046368619	banPhimHost_autogen/timestamp	e153317d6527a873
-0	480	1753755223046368619	banPhimHost_autogen/mocs_compilation.cpp	e153317d6527a873
-0	480	1753755223046368619	/home/quang/Projects/QT6/banPhimHost/build-banPhimHost-Desktop-Debug/banPhimHost_autogen/timestamp	e153317d6527a873
-0	480	1753755223046368619	/home/quang/Projects/QT6/banPhimHost/build-banPhimHost-Desktop-Debug/banPhimHost_autogen/mocs_compilation.cpp	e153317d6527a873
-481	2468	1753755225039368588	CMakeFiles/banPhimHost.dir/main.cpp.o	dbba2d40291f85af
+25	1563	1753755399003365870	CMakeFiles/banPhimHost.dir/mainwindow.cpp.o	f0a19ceb2b962be3
 480	2713	1753755225282368585	CMakeFiles/banPhimHost.dir/banPhimHost_autogen/mocs_compilation.cpp.o	2692ac4fae981ecc
+0	81	1753755705822361076	build.ninja	2894b7acb95a2e31
 482	2757	1753755225329368584	CMakeFiles/banPhimHost.dir/MyPlainTextEdit.cpp.o	818efef523e6f53e
-481	2867	1753755225433368582	CMakeFiles/banPhimHost.dir/mainwindow.cpp.o	f0a19ceb2b962be3
-2867	3167	1753755225736368577	banPhimHost	a8a1a3e1e4bd06ab
+481	2468	1753755225039368588	CMakeFiles/banPhimHost.dir/main.cpp.o	dbba2d40291f85af
+1	13	1753755474656364688	/home/quang/Projects/QT6/banPhimHost/build-banPhimHost-Desktop-Debug/banPhimHost_autogen/mocs_compilation.cpp	e153317d6527a873
+0	81	1753755705821361076	/home/quang/Projects/QT6/banPhimHost/build-banPhimHost-Desktop-Debug/cmake_install.cmake	2894b7acb95a2e31
+1	13	1753755474656364688	/home/quang/Projects/QT6/banPhimHost/build-banPhimHost-Desktop-Debug/banPhimHost_autogen/timestamp	e153317d6527a873
+1563	1867	1753755399305365866	banPhimHost	a8a1a3e1e4bd06ab
+1	13	1753755474656364688	banPhimHost_autogen/mocs_compilation.cpp	e153317d6527a873
+1	13	1753755474656364688	banPhimHost_autogen/timestamp	e153317d6527a873

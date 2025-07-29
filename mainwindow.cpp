@@ -3,9 +3,8 @@
 #include <QDebug>
 #include <QObject>
 #include <QRegularExpression>
-#include <QKeyEvent>
+//#include <QKeyEvent>
 #include <QShortcut>
-#include <QKeyEvent>
 #include "MyPlainTextEdit.h"
 
 MainWindow::MainWindow(QWidget *parent)
@@ -29,15 +28,6 @@ MainWindow::MainWindow(QWidget *parent)
         connect(btn, &QPushButton::clicked, this, &MainWindow::handleKeyClicked);
     }
 
-//    QShortcut* enterShortcut = new QShortcut(QKeySequence(Qt::Key_Enter), this);// Enter keyshortcut (numpad)
-//    connect(enterShortcut, &QShortcut::activated, this, &MainWindow::on_key_equals_clicked);
-
-
-//    QShortcut* returnShortcut = new QShortcut(QKeySequence(Qt::Key_Return), this);// Return keyshortcut (Enter)
-//    connect(returnShortcut, &QShortcut::activated, this, &MainWindow::on_key_equals_clicked);
-
-//    QShortcut* equalShortcut = new QShortcut(QKeySequence(Qt::Key_Equal), this);// Equal keyshortcut (equal)
-//    connect(equalShortcut, &QShortcut::activated, this, &MainWindow::on_key_equals_clicked);
     // Kết nối tín hiệu returnPressed() từ MyPlainTextEdit
     connect(ui->plainTextEdit, &MyPlainTextEdit::returnPressed,
             this, &MainWindow::on_key_equals_clicked);
