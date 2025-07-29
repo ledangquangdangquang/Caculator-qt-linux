@@ -739,9 +739,7 @@ QPushButton:pressed {
     color: white;
  
 }
-QPushButton:hover {
-    background-color: #cc0000;
-}
+
 QPushButton:pressed {
     background-color: #990000;
 }

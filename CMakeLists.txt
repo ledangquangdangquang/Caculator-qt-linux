@@ -17,20 +17,18 @@ set(PROJECT_SOURCES
         mainwindow.cpp
         mainwindow.h
         mainwindow.ui
-        MyPlainTextEdit.h
-        MyPlainTextEdit.cpp
-        operation/addoperation.cpp
-        operation/suboperation.cpp
-        operation/muloperation.cpp
-        operation/divoperation.cpp
-        operation/operationfactory.cpp
-        operation/addoperation.h
-        operation/suboperation.h
-        operation/muloperation.h
-        operation/divoperation.h
-        operation/operationfactory.h
+        MyPlainTextEdit.h	MyPlainTextEdit.cpp
+        # Operation
         operation/operation.h
-
+        operation/addoperation.h	operation/addoperation.cpp
+        operation/suboperation.h	operation/suboperation.cpp
+        operation/muloperation.h	operation/muloperation.cpp
+        operation/divoperation.h	operation/divoperation.cpp
+        operation/operationfactory.h	operation/operationfactory.cpp
+        # Parser
+        parser/tokenizer.h	parser/tokenizer.cpp
+        parser/shuntingyard.h	parser/shuntingyard.cpp
+        parser/evaluator.h	parser/evaluator.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
