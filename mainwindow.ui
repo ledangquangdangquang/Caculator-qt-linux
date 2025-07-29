@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>448</width>
-    <height>477</height>
+    <height>446</height>
    </rect>
   </property>
   <property name="font">
@@ -41,6 +41,9 @@
            <widget class="QPushButton" name="key_clear">
             <property name="cursor">
              <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="autoFillBackground">
+             <bool>false</bool>
             </property>
             <property name="text">
              <string>C</string>

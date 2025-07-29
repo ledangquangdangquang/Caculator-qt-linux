@@ -67,7 +67,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
-        MainWindow->resize(448, 477);
+        MainWindow->resize(448, 446);
         QFont font;
         font.setPointSize(13);
         MainWindow->setFont(font);
@@ -98,6 +98,7 @@ public:
         key_clear = new QPushButton(centralwidget);
         key_clear->setObjectName("key_clear");
         key_clear->setCursor(QCursor(Qt::PointingHandCursor));
+        key_clear->setAutoFillBackground(false);
 
         horizontalLayout_6->addWidget(key_clear);
 
