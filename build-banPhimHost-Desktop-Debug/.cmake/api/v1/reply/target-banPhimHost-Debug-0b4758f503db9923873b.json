@@ -22,7 +22,8 @@
 			"set_property",
 			"find_dependency",
 			"_qt_internal_find_third_party_dependencies",
-			"_qt_internal_find_qt_dependencies"
+			"_qt_internal_find_qt_dependencies",
+			"target_include_directories"
 		],
 		"files" : 
 		[
@@ -47,7 +48,7 @@
 			{
 				"command" : 3,
 				"file" : 1,
-				"line" : 23,
+				"line" : 25,
 				"parent" : 0
 			},
 			{
@@ -71,13 +72,13 @@
 			{
 				"command" : 4,
 				"file" : 1,
-				"line" : 55,
+				"line" : 65,
 				"parent" : 0
 			},
 			{
 				"command" : 5,
 				"file" : 1,
-				"line" : 45,
+				"line" : 47,
 				"parent" : 0
 			},
 			{
@@ -207,6 +208,12 @@
 				"file" : 5,
 				"line" : 710,
 				"parent" : 28
+			},
+			{
+				"command" : 13,
+				"file" : 1,
+				"line" : 48,
+				"parent" : 0
 			}
 		]
 	},
@@ -250,6 +257,10 @@
 					"path" : "/home/quang/Projects/QT6/banPhimHost/build-banPhimHost-Desktop-Debug/banPhimHost_autogen/include"
 				},
 				{
+					"backtrace" : 31,
+					"path" : "/home/quang/Projects/QT6/banPhimHost"
+				},
+				{
 					"backtrace" : 14,
 					"isSystem" : true,
 					"path" : "/home/quang/qt6/host/include/QtCore"
@@ -289,7 +300,8 @@
 			[
 				0,
 				1,
-				2
+				2,
+				6
 			]
 		}
 	],
@@ -373,7 +385,8 @@
 			[
 				0,
 				1,
-				2
+				2,
+				6
 			]
 		},
 		{
@@ -381,7 +394,8 @@
 			"sourceIndexes" : 
 			[
 				3,
-				5
+				5,
+				7
 			]
 		},
 		{
@@ -389,14 +403,14 @@
 			"sourceIndexes" : 
 			[
 				4,
-				6
+				8
 			]
 		},
 		{
 			"name" : "CMake Rules",
 			"sourceIndexes" : 
 			[
-				7
+				9
 			]
 		}
 	],
@@ -430,6 +444,17 @@
 			"backtrace" : 4,
 			"path" : "mainwindow.ui",
 			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 4,
+			"path" : "MyPlainTextEdit.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "MyPlainTextEdit.cpp",
+			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 0,

@@ -17,6 +17,8 @@ set(PROJECT_SOURCES
         mainwindow.cpp
         mainwindow.h
         mainwindow.ui
+        MyPlainTextEdit.h
+        MyPlainTextEdit.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
@@ -43,7 +45,15 @@ else()
 endif()
 
 target_link_libraries(banPhimHost PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+target_include_directories(banPhimHost PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 
+set_target_properties(banPhimHost PROPERTIES
+    MACOSX_BUNDLE_GUI_IDENTIFIER my.example.com
+    MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
+    MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
+    MACOSX_BUNDLE TRUE
+    WIN32_EXECUTABLE TRUE
+)
 set_target_properties(banPhimHost PROPERTIES
     MACOSX_BUNDLE_GUI_IDENTIFIER my.example.com
     MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}

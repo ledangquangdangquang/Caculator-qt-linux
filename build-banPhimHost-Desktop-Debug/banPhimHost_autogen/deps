@@ -1,5 +1,7 @@
 banPhimHost_autogen/timestamp: \
 	/home/quang/Projects/QT6/banPhimHost/CMakeLists.txt \
+	/home/quang/Projects/QT6/banPhimHost/MyPlainTextEdit.cpp \
+	/home/quang/Projects/QT6/banPhimHost/MyPlainTextEdit.h \
 	/home/quang/Projects/QT6/banPhimHost/build-banPhimHost-Desktop-Debug/.qtc/package-manager/auto-setup.cmake \
 	/home/quang/Projects/QT6/banPhimHost/build-banPhimHost-Desktop-Debug/CMakeFiles/4.1.20250724-ge588b90/CMakeCXXCompiler.cmake \
 	/home/quang/Projects/QT6/banPhimHost/build-banPhimHost-Desktop-Debug/CMakeFiles/4.1.20250724-ge588b90/CMakeSystem.cmake \
@@ -7,6 +9,11 @@ banPhimHost_autogen/timestamp: \
 	/home/quang/Projects/QT6/banPhimHost/main.cpp \
 	/home/quang/Projects/QT6/banPhimHost/mainwindow.cpp \
 	/home/quang/Projects/QT6/banPhimHost/mainwindow.h \
+	/home/quang/qt6/host/include/QtCore/QList \
+	/home/quang/qt6/host/include/QtCore/QObject \
+	/home/quang/qt6/host/include/QtCore/QRect \
+	/home/quang/qt6/host/include/QtCore/QSize \
+	/home/quang/qt6/host/include/QtCore/QSizeF \
 	/home/quang/qt6/host/include/QtCore/q20memory.h \
 	/home/quang/qt6/host/include/QtCore/q20type_traits.h \
 	/home/quang/qt6/host/include/QtCore/qalgorithms.h \
@@ -33,6 +40,7 @@ banPhimHost_autogen/timestamp: \
 	/home/quang/qt6/host/include/QtCore/qcontainerinfo.h \
 	/home/quang/qt6/host/include/QtCore/qcontainertools_impl.h \
 	/home/quang/qt6/host/include/QtCore/qcontiguouscache.h \
+	/home/quang/qt6/host/include/QtCore/qcoreevent.h \
 	/home/quang/qt6/host/include/QtCore/qdarwinhelpers.h \
 	/home/quang/qt6/host/include/QtCore/qdatastream.h \
 	/home/quang/qt6/host/include/QtCore/qdebug.h \
@@ -46,6 +54,7 @@ banPhimHost_autogen/timestamp: \
 	/home/quang/qt6/host/include/QtCore/qglobalstatic.h \
 	/home/quang/qt6/host/include/QtCore/qhash.h \
 	/home/quang/qt6/host/include/QtCore/qhashfunctions.h \
+	/home/quang/qt6/host/include/QtCore/qiodevice.h \
 	/home/quang/qt6/host/include/QtCore/qiodevicebase.h \
 	/home/quang/qt6/host/include/QtCore/qiterable.h \
 	/home/quang/qt6/host/include/QtCore/qiterator.h \
@@ -60,6 +69,7 @@ banPhimHost_autogen/timestamp: \
 	/home/quang/qt6/host/include/QtCore/qmetatype.h \
 	/home/quang/qt6/host/include/QtCore/qminmax.h \
 	/home/quang/qt6/host/include/QtCore/qnamespace.h \
+	/home/quang/qt6/host/include/QtCore/qnativeinterface.h \
 	/home/quang/qt6/host/include/QtCore/qnumeric.h \
 	/home/quang/qt6/host/include/QtCore/qobject.h \
 	/home/quang/qt6/host/include/QtCore/qobject_impl.h \
@@ -68,6 +78,7 @@ banPhimHost_autogen/timestamp: \
 	/home/quang/qt6/host/include/QtCore/qoverload.h \
 	/home/quang/qt6/host/include/QtCore/qpair.h \
 	/home/quang/qt6/host/include/QtCore/qpoint.h \
+	/home/quang/qt6/host/include/QtCore/qpointer.h \
 	/home/quang/qt6/host/include/QtCore/qprocessordetection.h \
 	/home/quang/qt6/host/include/QtCore/qrect.h \
 	/home/quang/qt6/host/include/QtCore/qrefcount.h \
@@ -109,39 +120,64 @@ banPhimHost_autogen/timestamp: \
 	/home/quang/qt6/host/include/QtCore/qtversionchecks.h \
 	/home/quang/qt6/host/include/QtCore/qtypeinfo.h \
 	/home/quang/qt6/host/include/QtCore/qtypes.h \
+	/home/quang/qt6/host/include/QtCore/qurl.h \
 	/home/quang/qt6/host/include/QtCore/qutf8stringview.h \
 	/home/quang/qt6/host/include/QtCore/qvariant.h \
 	/home/quang/qt6/host/include/QtCore/qvarlengtharray.h \
 	/home/quang/qt6/host/include/QtCore/qversiontagging.h \
 	/home/quang/qt6/host/include/QtCore/qxptype_traits.h \
+	/home/quang/qt6/host/include/QtGui/QKeyEvent \
+	/home/quang/qt6/host/include/QtGui/QTransform \
+	/home/quang/qt6/host/include/QtGui/qabstracttextdocumentlayout.h \
 	/home/quang/qt6/host/include/QtGui/qaction.h \
 	/home/quang/qt6/host/include/QtGui/qbitmap.h \
 	/home/quang/qt6/host/include/QtGui/qbrush.h \
 	/home/quang/qt6/host/include/QtGui/qcolor.h \
 	/home/quang/qt6/host/include/QtGui/qcursor.h \
+	/home/quang/qt6/host/include/QtGui/qevent.h \
+	/home/quang/qt6/host/include/QtGui/qeventpoint.h \
 	/home/quang/qt6/host/include/QtGui/qfont.h \
+	/home/quang/qt6/host/include/QtGui/qfontdatabase.h \
 	/home/quang/qt6/host/include/QtGui/qfontinfo.h \
 	/home/quang/qt6/host/include/QtGui/qfontmetrics.h \
+	/home/quang/qt6/host/include/QtGui/qglyphrun.h \
 	/home/quang/qt6/host/include/QtGui/qicon.h \
 	/home/quang/qt6/host/include/QtGui/qimage.h \
+	/home/quang/qt6/host/include/QtGui/qinputdevice.h \
 	/home/quang/qt6/host/include/QtGui/qkeysequence.h \
 	/home/quang/qt6/host/include/QtGui/qpaintdevice.h \
 	/home/quang/qt6/host/include/QtGui/qpalette.h \
+	/home/quang/qt6/host/include/QtGui/qpen.h \
 	/home/quang/qt6/host/include/QtGui/qpixelformat.h \
 	/home/quang/qt6/host/include/QtGui/qpixmap.h \
+	/home/quang/qt6/host/include/QtGui/qpointingdevice.h \
 	/home/quang/qt6/host/include/QtGui/qpolygon.h \
+	/home/quang/qt6/host/include/QtGui/qrawfont.h \
 	/home/quang/qt6/host/include/QtGui/qregion.h \
 	/home/quang/qt6/host/include/QtGui/qrgb.h \
 	/home/quang/qt6/host/include/QtGui/qrgba64.h \
+	/home/quang/qt6/host/include/QtGui/qscreen.h \
+	/home/quang/qt6/host/include/QtGui/qtextcursor.h \
+	/home/quang/qt6/host/include/QtGui/qtextdocument.h \
+	/home/quang/qt6/host/include/QtGui/qtextformat.h \
+	/home/quang/qt6/host/include/QtGui/qtextlayout.h \
+	/home/quang/qt6/host/include/QtGui/qtextoption.h \
 	/home/quang/qt6/host/include/QtGui/qtgui-config.h \
 	/home/quang/qt6/host/include/QtGui/qtguiexports.h \
 	/home/quang/qt6/host/include/QtGui/qtguiglobal.h \
 	/home/quang/qt6/host/include/QtGui/qtransform.h \
+	/home/quang/qt6/host/include/QtGui/qvector2d.h \
+	/home/quang/qt6/host/include/QtGui/qvectornd.h \
 	/home/quang/qt6/host/include/QtGui/qwindowdefs.h \
 	/home/quang/qt6/host/include/QtWidgets/QMainWindow \
+	/home/quang/qt6/host/include/QtWidgets/QPlainTextEdit \
+	/home/quang/qt6/host/include/QtWidgets/qabstractscrollarea.h \
+	/home/quang/qt6/host/include/QtWidgets/qframe.h \
 	/home/quang/qt6/host/include/QtWidgets/qmainwindow.h \
+	/home/quang/qt6/host/include/QtWidgets/qplaintextedit.h \
 	/home/quang/qt6/host/include/QtWidgets/qsizepolicy.h \
 	/home/quang/qt6/host/include/QtWidgets/qtabwidget.h \
+	/home/quang/qt6/host/include/QtWidgets/qtextedit.h \
 	/home/quang/qt6/host/include/QtWidgets/qtwidgets-config.h \
 	/home/quang/qt6/host/include/QtWidgets/qtwidgetsexports.h \
 	/home/quang/qt6/host/include/QtWidgets/qtwidgetsglobal.h \
@@ -611,22 +647,82 @@ banPhimHost_autogen/timestamp: \
 	/usr/lib/gcc/x86_64-linux-gnu/11/include/stdarg.h \
 	/usr/lib/gcc/x86_64-linux-gnu/11/include/stdbool.h \
 	/usr/lib/gcc/x86_64-linux-gnu/11/include/stddef.h \
+	/usr/local/share/cmake-4.1/Modules/CMakeCXXCompiler.cmake.in \
+	/usr/local/share/cmake-4.1/Modules/CMakeCXXCompilerABI.cpp \
 	/usr/local/share/cmake-4.1/Modules/CMakeCXXInformation.cmake \
 	/usr/local/share/cmake-4.1/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake \
 	/usr/local/share/cmake-4.1/Modules/CMakeCommonLanguageInclude.cmake \
+	/usr/local/share/cmake-4.1/Modules/CMakeCompilerIdDetection.cmake \
+	/usr/local/share/cmake-4.1/Modules/CMakeDetermineCXXCompiler.cmake \
+	/usr/local/share/cmake-4.1/Modules/CMakeDetermineCompiler.cmake \
+	/usr/local/share/cmake-4.1/Modules/CMakeDetermineCompilerABI.cmake \
+	/usr/local/share/cmake-4.1/Modules/CMakeDetermineCompilerId.cmake \
+	/usr/local/share/cmake-4.1/Modules/CMakeDetermineCompilerSupport.cmake \
+	/usr/local/share/cmake-4.1/Modules/CMakeDetermineSystem.cmake \
+	/usr/local/share/cmake-4.1/Modules/CMakeFindBinUtils.cmake \
 	/usr/local/share/cmake-4.1/Modules/CMakeFindDependencyMacro.cmake \
 	/usr/local/share/cmake-4.1/Modules/CMakeGenericSystem.cmake \
 	/usr/local/share/cmake-4.1/Modules/CMakeInitializeConfigs.cmake \
 	/usr/local/share/cmake-4.1/Modules/CMakeLanguageInformation.cmake \
+	/usr/local/share/cmake-4.1/Modules/CMakeNinjaFindMake.cmake \
+	/usr/local/share/cmake-4.1/Modules/CMakeParseImplicitIncludeInfo.cmake \
+	/usr/local/share/cmake-4.1/Modules/CMakeParseImplicitLinkInfo.cmake \
+	/usr/local/share/cmake-4.1/Modules/CMakeParseLibraryArchitecture.cmake \
+	/usr/local/share/cmake-4.1/Modules/CMakeSystem.cmake.in \
 	/usr/local/share/cmake-4.1/Modules/CMakeSystemSpecificInformation.cmake \
 	/usr/local/share/cmake-4.1/Modules/CMakeSystemSpecificInitialize.cmake \
+	/usr/local/share/cmake-4.1/Modules/CMakeTestCXXCompiler.cmake \
+	/usr/local/share/cmake-4.1/Modules/CMakeTestCompilerCommon.cmake \
 	/usr/local/share/cmake-4.1/Modules/CheckCXXCompilerFlag.cmake \
 	/usr/local/share/cmake-4.1/Modules/CheckCXXSourceCompiles.cmake \
 	/usr/local/share/cmake-4.1/Modules/CheckIncludeFileCXX.cmake \
 	/usr/local/share/cmake-4.1/Modules/CheckLibraryExists.cmake \
+	/usr/local/share/cmake-4.1/Modules/Compiler/ADSP-DetermineCompiler.cmake \
+	/usr/local/share/cmake-4.1/Modules/Compiler/ARMCC-DetermineCompiler.cmake \
+	/usr/local/share/cmake-4.1/Modules/Compiler/ARMClang-DetermineCompiler.cmake \
+	/usr/local/share/cmake-4.1/Modules/Compiler/AppleClang-DetermineCompiler.cmake \
+	/usr/local/share/cmake-4.1/Modules/Compiler/Borland-DetermineCompiler.cmake \
 	/usr/local/share/cmake-4.1/Modules/Compiler/CMakeCommonCompilerMacros.cmake \
+	/usr/local/share/cmake-4.1/Modules/Compiler/Clang-DetermineCompiler.cmake \
+	/usr/local/share/cmake-4.1/Modules/Compiler/Clang-DetermineCompilerInternal.cmake \
+	/usr/local/share/cmake-4.1/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake \
+	/usr/local/share/cmake-4.1/Modules/Compiler/Cray-DetermineCompiler.cmake \
+	/usr/local/share/cmake-4.1/Modules/Compiler/CrayClang-DetermineCompiler.cmake \
+	/usr/local/share/cmake-4.1/Modules/Compiler/Diab-DetermineCompiler.cmake \
+	/usr/local/share/cmake-4.1/Modules/Compiler/Embarcadero-DetermineCompiler.cmake \
+	/usr/local/share/cmake-4.1/Modules/Compiler/Fujitsu-DetermineCompiler.cmake \
+	/usr/local/share/cmake-4.1/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake \
+	/usr/local/share/cmake-4.1/Modules/Compiler/GHS-DetermineCompiler.cmake \
+	/usr/local/share/cmake-4.1/Modules/Compiler/GNU-CXX-CXXImportStd.cmake \
+	/usr/local/share/cmake-4.1/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake \
 	/usr/local/share/cmake-4.1/Modules/Compiler/GNU-CXX.cmake \
+	/usr/local/share/cmake-4.1/Modules/Compiler/GNU-FindBinUtils.cmake \
 	/usr/local/share/cmake-4.1/Modules/Compiler/GNU.cmake \
+	/usr/local/share/cmake-4.1/Modules/Compiler/HP-CXX-DetermineCompiler.cmake \
+	/usr/local/share/cmake-4.1/Modules/Compiler/IAR-DetermineCompiler.cmake \
+	/usr/local/share/cmake-4.1/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake \
+	/usr/local/share/cmake-4.1/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake \
+	/usr/local/share/cmake-4.1/Modules/Compiler/Intel-DetermineCompiler.cmake \
+	/usr/local/share/cmake-4.1/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake \
+	/usr/local/share/cmake-4.1/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake \
+	/usr/local/share/cmake-4.1/Modules/Compiler/MSVC-DetermineCompiler.cmake \
+	/usr/local/share/cmake-4.1/Modules/Compiler/NVHPC-DetermineCompiler.cmake \
+	/usr/local/share/cmake-4.1/Modules/Compiler/NVIDIA-DetermineCompiler.cmake \
+	/usr/local/share/cmake-4.1/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake \
+	/usr/local/share/cmake-4.1/Modules/Compiler/OrangeC-DetermineCompiler.cmake \
+	/usr/local/share/cmake-4.1/Modules/Compiler/PGI-DetermineCompiler.cmake \
+	/usr/local/share/cmake-4.1/Modules/Compiler/PathScale-DetermineCompiler.cmake \
+	/usr/local/share/cmake-4.1/Modules/Compiler/Renesas-DetermineCompiler.cmake \
+	/usr/local/share/cmake-4.1/Modules/Compiler/SCO-DetermineCompiler.cmake \
+	/usr/local/share/cmake-4.1/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake \
+	/usr/local/share/cmake-4.1/Modules/Compiler/TI-DetermineCompiler.cmake \
+	/usr/local/share/cmake-4.1/Modules/Compiler/TIClang-DetermineCompiler.cmake \
+	/usr/local/share/cmake-4.1/Modules/Compiler/Tasking-DetermineCompiler.cmake \
+	/usr/local/share/cmake-4.1/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake \
+	/usr/local/share/cmake-4.1/Modules/Compiler/Watcom-DetermineCompiler.cmake \
+	/usr/local/share/cmake-4.1/Modules/Compiler/XL-CXX-DetermineCompiler.cmake \
+	/usr/local/share/cmake-4.1/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake \
+	/usr/local/share/cmake-4.1/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake \
 	/usr/local/share/cmake-4.1/Modules/FeatureSummary.cmake \
 	/usr/local/share/cmake-4.1/Modules/FindOpenGL.cmake \
 	/usr/local/share/cmake-4.1/Modules/FindPackageHandleStandardArgs.cmake \
@@ -636,15 +732,19 @@ banPhimHost_autogen/timestamp: \
 	/usr/local/share/cmake-4.1/Modules/GNUInstallDirs.cmake \
 	/usr/local/share/cmake-4.1/Modules/Internal/CMakeCXXLinkerInformation.cmake \
 	/usr/local/share/cmake-4.1/Modules/Internal/CMakeCommonLinkerInformation.cmake \
+	/usr/local/share/cmake-4.1/Modules/Internal/CMakeDetermineLinkerId.cmake \
+	/usr/local/share/cmake-4.1/Modules/Internal/CMakeInspectCXXLinker.cmake \
 	/usr/local/share/cmake-4.1/Modules/Internal/CheckCompilerFlag.cmake \
 	/usr/local/share/cmake-4.1/Modules/Internal/CheckFlagCommonConfig.cmake \
 	/usr/local/share/cmake-4.1/Modules/Internal/CheckSourceCompiles.cmake \
+	/usr/local/share/cmake-4.1/Modules/Internal/FeatureTesting.cmake \
 	/usr/local/share/cmake-4.1/Modules/Linker/GNU-CXX.cmake \
 	/usr/local/share/cmake-4.1/Modules/Linker/GNU.cmake \
 	/usr/local/share/cmake-4.1/Modules/MacroAddFileDependencies.cmake \
 	/usr/local/share/cmake-4.1/Modules/Platform/Linker/GNU.cmake \
 	/usr/local/share/cmake-4.1/Modules/Platform/Linker/Linux-GNU-CXX.cmake \
 	/usr/local/share/cmake-4.1/Modules/Platform/Linker/Linux-GNU.cmake \
+	/usr/local/share/cmake-4.1/Modules/Platform/Linux-Determine-CXX.cmake \
 	/usr/local/share/cmake-4.1/Modules/Platform/Linux-GNU-CXX.cmake \
 	/usr/local/share/cmake-4.1/Modules/Platform/Linux-GNU.cmake \
 	/usr/local/share/cmake-4.1/Modules/Platform/Linux-Initialize.cmake \

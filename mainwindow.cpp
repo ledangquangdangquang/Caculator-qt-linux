@@ -4,6 +4,10 @@
 #include <QObject>
 #include <QRegularExpression>
 #include <QKeyEvent>
+#include <QShortcut>
+#include <QKeyEvent>
+#include "MyPlainTextEdit.h"
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -25,6 +29,22 @@ MainWindow::MainWindow(QWidget *parent)
         connect(btn, &QPushButton::clicked, this, &MainWindow::handleKeyClicked);
     }
 
+//    QShortcut* enterShortcut = new QShortcut(QKeySequence(Qt::Key_Enter), this);// Enter keyshortcut (numpad)
+//    connect(enterShortcut, &QShortcut::activated, this, &MainWindow::on_key_equals_clicked);
+
+
+//    QShortcut* returnShortcut = new QShortcut(QKeySequence(Qt::Key_Return), this);// Return keyshortcut (Enter)
+//    connect(returnShortcut, &QShortcut::activated, this, &MainWindow::on_key_equals_clicked);
+
+//    QShortcut* equalShortcut = new QShortcut(QKeySequence(Qt::Key_Equal), this);// Equal keyshortcut (equal)
+//    connect(equalShortcut, &QShortcut::activated, this, &MainWindow::on_key_equals_clicked);
+    // Kết nối tín hiệu returnPressed() từ MyPlainTextEdit
+    connect(ui->plainTextEdit, &MyPlainTextEdit::returnPressed,
+            this, &MainWindow::on_key_equals_clicked);
+
+    // Nếu muốn thêm QShortcut cho Enter từ các phần khác (ví dụ không focus plainTextEdit)
+    QShortcut* enterShortcut = new QShortcut(QKeySequence(Qt::Key_Return), this);
+    connect(enterShortcut, &QShortcut::activated, this, &MainWindow::on_key_equals_clicked);
 }
 
 MainWindow::~MainWindow()
@@ -32,7 +52,6 @@ MainWindow::~MainWindow()
     delete ui;
 }
 // Enter = Button "="
-
 // Fillter no a number (done)
 // Event when buttoon "=" cliked (done)
 void MainWindow::on_key_equals_clicked()
@@ -44,7 +63,6 @@ void MainWindow::on_key_equals_clicked()
     ui->plainTextEdit->insertPlainText("\nERORR: not a number");
         return;
     }
-
 }
 // Print name of object in plain text when each button cliked (done)
 void MainWindow::handleKeyClicked()

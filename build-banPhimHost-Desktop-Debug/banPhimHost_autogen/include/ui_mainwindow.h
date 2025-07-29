@@ -16,11 +16,11 @@
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
-#include <QtWidgets/QPlainTextEdit>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
+#include "MyPlainTextEdit.h"
 
 QT_BEGIN_NAMESPACE
 
@@ -30,7 +30,7 @@ public:
     QWidget *centralwidget;
     QVBoxLayout *verticalLayout_3;
     QVBoxLayout *verticalLayout_2;
-    QPlainTextEdit *plainTextEdit;
+    MyPlainTextEdit *plainTextEdit;
     QVBoxLayout *verticalLayout;
     QHBoxLayout *horizontalLayout_6;
     QPushButton *key_clear;
@@ -85,7 +85,7 @@ public:
         verticalLayout_3->setObjectName("verticalLayout_3");
         verticalLayout_2 = new QVBoxLayout();
         verticalLayout_2->setObjectName("verticalLayout_2");
-        plainTextEdit = new QPlainTextEdit(centralwidget);
+        plainTextEdit = new MyPlainTextEdit(centralwidget);
         plainTextEdit->setObjectName("plainTextEdit");
         plainTextEdit->viewport()->setProperty("cursor", QVariant(QCursor(Qt::IBeamCursor)));
 
