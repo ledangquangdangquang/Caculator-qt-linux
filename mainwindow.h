@@ -20,6 +20,8 @@ private slots:
     void handleKeyClicked();
     void on_key_clear_clicked();
     void dotHandle();
+    void handleClearHistory();
+    void handleAbout();
 
 private:
     Ui::MainWindow *ui;

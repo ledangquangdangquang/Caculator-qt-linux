@@ -10,11 +10,13 @@
 #define UI_MAINWINDOW_H
 
 #include <QtCore/QVariant>
+#include <QtGui/QAction>
 #include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QMainWindow>
+#include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPlainTextEdit>
 #include <QtWidgets/QPushButton>
@@ -28,6 +30,8 @@ QT_BEGIN_NAMESPACE
 class Ui_MainWindow
 {
 public:
+    QAction *actionClear_history;
+    QAction *actionAbout;
     QWidget *centralwidget;
     QVBoxLayout *verticalLayout_3;
     QVBoxLayout *verticalLayout_2;
@@ -63,6 +67,8 @@ public:
     QPushButton *key_sub;
     QPushButton *key_equals;
     QMenuBar *menubar;
+    QMenu *menuFile;
+    QMenu *menuHelp;
     QStatusBar *statusbar;
 
     void setupUi(QMainWindow *MainWindow)
@@ -81,6 +87,10 @@ public:
             icon.addFile(QString::fromUtf8("."), QSize(), QIcon::Normal, QIcon::Off);
         }
         MainWindow->setWindowIcon(icon);
+        actionClear_history = new QAction(MainWindow);
+        actionClear_history->setObjectName("actionClear_history");
+        actionAbout = new QAction(MainWindow);
+        actionAbout->setObjectName("actionAbout");
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
         verticalLayout_3 = new QVBoxLayout(centralwidget);
@@ -401,10 +411,20 @@ public:
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
         menubar->setGeometry(QRect(0, 0, 448, 25));
+        menuFile = new QMenu(menubar);
+        menuFile->setObjectName("menuFile");
+        menuFile->setCursor(QCursor(Qt::PointingHandCursor));
+        menuHelp = new QMenu(menubar);
+        menuHelp->setObjectName("menuHelp");
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName("statusbar");
         MainWindow->setStatusBar(statusbar);
+
+        menubar->addAction(menuFile->menuAction());
+        menubar->addAction(menuHelp->menuAction());
+        menuFile->addAction(actionClear_history);
+        menuHelp->addAction(actionAbout);
 
         retranslateUi(MainWindow);
 
@@ -414,6 +434,8 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "Calculator", nullptr));
+        actionClear_history->setText(QCoreApplication::translate("MainWindow", "Clear history", nullptr));
+        actionAbout->setText(QCoreApplication::translate("MainWindow", "About..", nullptr));
         key_clear->setText(QCoreApplication::translate("MainWindow", "C", nullptr));
         key_sym9->setText(QCoreApplication::translate("MainWindow", "(", nullptr));
         key_sym0->setText(QCoreApplication::translate("MainWindow", ")", nullptr));
@@ -438,6 +460,8 @@ public:
         key_0->setText(QCoreApplication::translate("MainWindow", "0", nullptr));
         key_sub->setText(QCoreApplication::translate("MainWindow", "-", nullptr));
         key_equals->setText(QCoreApplication::translate("MainWindow", "=", nullptr));
+        menuFile->setTitle(QCoreApplication::translate("MainWindow", "File", nullptr));
+        menuHelp->setTitle(QCoreApplication::translate("MainWindow", "Help", nullptr));
     } // retranslateUi
 
 };

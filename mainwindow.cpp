@@ -5,6 +5,7 @@
 #include <QRegularExpression>
 #include <QShortcut>
 #include <cmath>
+#include <QMessageBox>
 
 #include "MyPlainTextEdit.h"
 #include "operation/operationfactory.h"
@@ -46,13 +47,26 @@ MainWindow::MainWindow(QWidget *parent)
     connect(dotShortcut, &QShortcut::activated, this, &MainWindow::dotHandle);
     QShortcut* commaShortcut = new QShortcut(QKeySequence(Qt::Key_Comma), this); // real enter
     connect(commaShortcut, &QShortcut::activated, this, &MainWindow::dotHandle);
+
+    // Menu
+    connect(ui->actionClear_history, &QAction::triggered, this, &MainWindow::handleClearHistory);
+    // About...
+    connect(ui->actionAbout, &QAction::triggered, this, &MainWindow::handleAbout);
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
 }
-// Enter = Button "="
+// Show about
+void MainWindow::handleAbout() {
+    QMessageBox::information(this, "Calculator about", "Calculator v0.0.1\n(c) ledangquangdangquang");
+}
+// Clear history
+void MainWindow::handleClearHistory() {
+    ui->plainHistory->clear();
+}
+// Enter = Button "=" (done)
 // Fillter no a number (done)
 // Event when buttoon "=" cliked (NOT DONE)
 void MainWindow::on_key_equals_clicked()
