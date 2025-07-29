@@ -43,7 +43,7 @@ static constexpr auto qt_meta_stringdata_CLASSMainWindowENDCLASS = QtMocHelpers:
     "",
     "handleKeyClicked",
     "on_key_clear_clicked",
-    "on_key_dot_clicked"
+    "dotHandle"
 );
 #else  // !QT_MOC_HAS_STRING_DATA
 struct qt_meta_stringdata_CLASSMainWindowENDCLASS_t {
@@ -53,7 +53,7 @@ struct qt_meta_stringdata_CLASSMainWindowENDCLASS_t {
     char stringdata2[1];
     char stringdata3[17];
     char stringdata4[21];
-    char stringdata5[19];
+    char stringdata5[10];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_CLASSMainWindowENDCLASS_t::offsetsAndSizes) + ofs), len 
@@ -64,14 +64,14 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSMainWindowENDCLASS_t qt_meta_st
         QT_MOC_LITERAL(33, 0),  // ""
         QT_MOC_LITERAL(34, 16),  // "handleKeyClicked"
         QT_MOC_LITERAL(51, 20),  // "on_key_clear_clicked"
-        QT_MOC_LITERAL(72, 18)   // "on_key_dot_clicked"
+        QT_MOC_LITERAL(72, 9)   // "dotHandle"
     },
     "MainWindow",
     "on_key_equals_clicked",
     "",
     "handleKeyClicked",
     "on_key_clear_clicked",
-    "on_key_dot_clicked"
+    "dotHandle"
 };
 #undef QT_MOC_LITERAL
 #endif // !QT_MOC_HAS_STRING_DATA
@@ -120,7 +120,7 @@ Q_CONSTINIT const QMetaObject MainWindow::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_key_clear_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'on_key_dot_clicked'
+        // method 'dotHandle'
         QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
     nullptr
@@ -135,7 +135,7 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 0: _t->on_key_equals_clicked(); break;
         case 1: _t->handleKeyClicked(); break;
         case 2: _t->on_key_clear_clicked(); break;
-        case 3: _t->on_key_dot_clicked(); break;
+        case 3: _t->dotHandle(); break;
         default: ;
         }
     }

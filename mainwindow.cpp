@@ -37,13 +37,13 @@ MainWindow::MainWindow(QWidget *parent)
     QShortcut* equalShortcut = new QShortcut(QKeySequence(Qt::Key_Equal), this); // equal key
     connect(equalShortcut, &QShortcut::activated, this, &MainWindow::on_key_equals_clicked);
 
-    // Comma and dot handle (NOT DONE)
-//    connect(ui->plainTextEdit, &MyPlainTextEdit::dotPressed,
-//            this, &MainWindow::on_key_equals_clicked);
-//    QShortcut* dotShortcut = new QShortcut(QKeySequence(Qt::Key_Period), this); // real enter
-//    connect(dotShortcut, &QShortcut::activated, this, &MainWindow::on_key_dot_clicked);
-//    QShortcut* commaShortcut = new QShortcut(QKeySequence(Qt::Key_Comma), this); // real enter
-//    connect(commaShortcut, &QShortcut::activated, this, &MainWindow::on_key_dot_clicked);
+    // Comma and dot handle (done)
+    connect(ui->plainTextEdit, &MyPlainTextEdit::dotPressed,
+            this, &MainWindow::dotHandle);
+    QShortcut* dotShortcut = new QShortcut(QKeySequence(Qt::Key_Period), this); // real enter
+    connect(dotShortcut, &QShortcut::activated, this, &MainWindow::dotHandle);
+    QShortcut* commaShortcut = new QShortcut(QKeySequence(Qt::Key_Comma), this); // real enter
+    connect(commaShortcut, &QShortcut::activated, this, &MainWindow::dotHandle);
 }
 
 MainWindow::~MainWindow()
@@ -60,7 +60,7 @@ void MainWindow::on_key_equals_clicked()
     qDebug() << "Entered:" << expr;
 
     // 1. Regex ký tự hợp lệ
-    static const QRegularExpression re(R"([^0-9+\-*/%^().,\s𝛑√a-zA-Z])");
+    static const QRegularExpression re(R"([^0-9+\-*/%^().,\s𝛑√a-zA-Z×÷])");
     if (re.match(expr).hasMatch()) {
         ui->plainTextEdit->appendPlainText("ERROR: contains invalid characters");
         return;
@@ -105,7 +105,7 @@ void MainWindow::handleKeyClicked()
     } else if (objName == "key_x_squared") {
         ui->plainTextEdit->insertPlainText("^2"); // Dùng ký hiệu mũ
     } else if (objName == "key_dot") {
-        on_key_dot_clicked();
+        dotHandle();
     } else {
         ui->plainTextEdit->insertPlainText(btnText);
     }
@@ -119,7 +119,7 @@ void MainWindow::on_key_clear_clicked()
 
 }
 
-void MainWindow::on_key_dot_clicked()
+void MainWindow::dotHandle()
 {
     ui->plainTextEdit->insertPlainText(".");
 }
