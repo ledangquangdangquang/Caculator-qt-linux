@@ -1,5 +1,19 @@
 #include "tokenizer.h"
 #include <QRegularExpression>
+QVector<QString> Tokenizer::fixMissingClosingParentheses(const QVector<QString>& tokens) {
+    QVector<QString> fixedTokens = tokens;
+    int openCount = 0;
+    int closeCount = 0;
+    for (const QString& t : tokens) {
+        if (t == "(") openCount++;
+        else if (t == ")") closeCount++;
+    }
+    int missing = openCount - closeCount;
+    for (int i = 0; i < missing; i++) {
+        fixedTokens.append(")");
+    }
+    return fixedTokens;
+}
 
 QVector<QString> Tokenizer::tokenize(const QString& expr) {
     QVector<QString> tokens;
@@ -38,5 +52,6 @@ QVector<QString> Tokenizer::tokenize(const QString& expr) {
         }
     }
 
-    return tokens;
+//    return tokens;
+    return Tokenizer::fixMissingClosingParentheses(tokens);
 }

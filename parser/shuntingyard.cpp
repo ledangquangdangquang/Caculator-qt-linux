@@ -50,6 +50,21 @@ QVector<QString> ShuntingYard::toPostfix(const QVector<QString>& tokens) {
                 continue;
             }
         }
+        if (token == "+" &&
+            (lastToken.isEmpty() || isOperator(lastToken) || lastToken == "(") &&
+            i + 1 < tokens.size())
+        {
+            QString nextToken = tokens[i + 1];
+            bool isNum;
+            nextToken.toDouble(&isNum);
+            if (isNum) {
+                // Ghép "-" và số thành 1 token: "-5"
+                outputQueue.append(nextToken);
+                i++; // Bỏ qua nextToken
+                lastToken = nextToken; // Đánh dấu đã xử lý số
+                continue;
+            }
+        }
 
         // Nếu token là số
         bool isNumber;

@@ -60,70 +60,52 @@ MainWindow::MainWindow(QWidget *parent)
     // About...
     connect(ui->actionAbout, &QAction::triggered, this, &MainWindow::handleAbout);
     // Ẩn các nút nâng cao ban đầu
-    ui->key_sin->hide();
-    ui->key_cos->hide();
-    ui->key_tan->hide();
-    ui->key_sinh->hide();
-    ui->key_cosh->hide();
-    ui->key_tanh->hide();
-    ui->key_exp->hide();
-    ui->key_ln->hide();
-    ui->key_log->hide();
-    ui->key_i->hide();
-    ui->key_re->hide();
-    ui->key_im->hide();
-    ui->key_abs->hide();
-    ui->key_conj->hide();
-    ui->key_arg->hide();
+    QStringList hideObjectNames = {
+        "sin", "cos", "tan",
+        "sinh", "cosh", "tanh",
+        "exp", "ln", "log",
+        "i", "re", "im",
+        "abs", "conj", "arg"
+    };
+    for (const QString& hideObjectName : hideObjectNames) {
+        QString objectName = "key_" + hideObjectName;
+        QPushButton* objectHide = findChild<QPushButton*>(objectName);
+        objectHide->hide();  // Ẩn nút nếu tìm thấy
+    }
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
 }
+// Hide or Show when resize (done)
 void MainWindow::resizeEvent(QResizeEvent *event)
 {
-    if (width() > 708) { // Ngưỡng có thể thay đổi tuỳ ý
-        ui->key_sin->show();
-        ui->key_cos->show();
-        ui->key_tan->show();
-        ui->key_sinh->show();
-        ui->key_cosh->show();
-        ui->key_tanh->show();
-        ui->key_exp->show();
-        ui->key_ln->show();
-        ui->key_log->show();
-        ui->key_i->show();
-        ui->key_re->show();
-        ui->key_im->show();
-        ui->key_abs->show();
-        ui->key_conj->show();
-        ui->key_arg->show();
-    } else {
-        ui->key_sin->hide();
-        ui->key_cos->hide();
-        ui->key_tan->hide();
-        ui->key_sinh->hide();
-        ui->key_cosh->hide();
-        ui->key_tanh->hide();
-        ui->key_exp->hide();
-        ui->key_ln->hide();
-        ui->key_log->hide();
-        ui->key_i->hide();
-        ui->key_re->hide();
-        ui->key_im->hide();
-        ui->key_abs->hide();
-        ui->key_conj->hide();
-        ui->key_arg->hide();
+    QStringList hideObjectNames = {
+        "sin", "cos", "tan",
+        "sinh", "cosh", "tanh",
+        "exp", "ln", "log",
+        "i", "re", "im",
+        "abs", "conj", "arg"
+    };
+    for (const QString& hideObjectName : hideObjectNames) {
+        QString objectName = "key_" + hideObjectName;
+        QPushButton* objectHide = findChild<QPushButton*>(objectName);
+        if (width() > 708) { // Ngưỡng có thể thay đổi tuỳ ý
+            objectHide->show();  // Ẩn nút nếu tìm thấy
+        }else{
+            objectHide->hide();  // Ẩn nút nếu tìm thấy
+        }
     }
+
 
     QMainWindow::resizeEvent(event); // Gọi lại hàm gốc
 }
-// Show about
+// Show about (done)
 void MainWindow::handleAbout() {
     QMessageBox::information(this, "Calculator about", "Calculator v0.0.1\n(c) ledangquangdangquang");
 }
-// Clear history
+// Clear history (done)
 void MainWindow::handleClearHistory() {
     ui->plainHistory->clear();
 }
@@ -132,6 +114,10 @@ void MainWindow::handleClearHistory() {
 // Event when buttoon "=" cliked (NOT DONE)
 void MainWindow::on_key_equals_clicked()
 {
+    if (ui->plainTextEdit->toPlainText().isEmpty()) {
+        ui->plainTextEdit->setFocus();
+        return;
+    }
     QString expr = ui->plainTextEdit->toPlainText();
     qDebug() << "Entered:" << expr;
 
@@ -159,7 +145,7 @@ void MainWindow::on_key_equals_clicked()
     // 4. Kiểm tra dấu ngoặc
     int open = expr.count('(');
     int close = expr.count(')');
-    if (open != close) {
+    if (open < close) {
         ui->plainTextEdit->appendPlainText("ERROR: unmatched parentheses");
         return;
     }
