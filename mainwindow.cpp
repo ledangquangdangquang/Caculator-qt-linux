@@ -52,11 +52,65 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->actionClear_history, &QAction::triggered, this, &MainWindow::handleClearHistory);
     // About...
     connect(ui->actionAbout, &QAction::triggered, this, &MainWindow::handleAbout);
+    // Ẩn các nút nâng cao ban đầu
+    ui->key_sin->hide();
+    ui->key_cos->hide();
+    ui->key_tan->hide();
+    ui->key_sinh->hide();
+    ui->key_cosh->hide();
+    ui->key_tanh->hide();
+    ui->key_e->hide();
+    ui->key_ln->hide();
+    ui->key_log->hide();
+    ui->key_i->hide();
+    ui->key_re->hide();
+    ui->key_im->hide();
+    ui->key_abs->hide();
+    ui->key_conj->hide();
+    ui->key_arg->hide();
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+void MainWindow::resizeEvent(QResizeEvent *event)
+{
+    if (width() > 708) { // Ngưỡng có thể thay đổi tuỳ ý
+        ui->key_sin->show();
+        ui->key_cos->show();
+        ui->key_tan->show();
+        ui->key_sinh->show();
+        ui->key_cosh->show();
+        ui->key_tanh->show();
+        ui->key_e->show();
+        ui->key_ln->show();
+        ui->key_log->show();
+        ui->key_i->show();
+        ui->key_re->show();
+        ui->key_im->show();
+        ui->key_abs->show();
+        ui->key_conj->show();
+        ui->key_arg->show();
+    } else {
+        ui->key_sin->hide();
+        ui->key_cos->hide();
+        ui->key_tan->hide();
+        ui->key_sinh->hide();
+        ui->key_cosh->hide();
+        ui->key_tanh->hide();
+        ui->key_e->hide();
+        ui->key_ln->hide();
+        ui->key_log->hide();
+        ui->key_i->hide();
+        ui->key_re->hide();
+        ui->key_im->hide();
+        ui->key_abs->hide();
+        ui->key_conj->hide();
+        ui->key_arg->hide();
+    }
+
+    QMainWindow::resizeEvent(event); // Gọi lại hàm gốc
 }
 // Show about
 void MainWindow::handleAbout() {

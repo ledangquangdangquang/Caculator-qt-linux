@@ -22,6 +22,7 @@ private slots:
     void dotHandle();
     void handleClearHistory();
     void handleAbout();
+    void resizeEvent(QResizeEvent *event);
 
 private:
     Ui::MainWindow *ui;
