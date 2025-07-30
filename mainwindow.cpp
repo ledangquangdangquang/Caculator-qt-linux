@@ -136,7 +136,7 @@ void MainWindow::on_key_equals_clicked()
     }
 
     // 3. Có ít nhất một chữ số
-    static const QRegularExpression digitRe(R"(\d|𝛑)");
+    static const QRegularExpression digitRe(R"(\d|𝛑|e)");
     if (!digitRe.match(expr).hasMatch()) {
         ui->plainTextEdit->appendPlainText("ERROR: expression must contain number(s)");
         return;
@@ -174,6 +174,17 @@ void MainWindow::on_key_equals_clicked()
 
         // Bước 3: thay "pi" thành giá trị
         expr.replace("pi", QString::number(M_PI));
+    }
+    // e handle (done)
+    if (expr == "e") {
+        expr = QString::number(M_E);
+    } else {
+        // Bước 2: thêm * ngầm giữa số và e
+        static const QRegularExpression addMul(R"((\d)(e))");
+        expr.replace(addMul, R"(\1*\2)");
+
+        // Bước 3: thay "e" thành giá trị
+        expr.replace("e", QString::number(M_E));
     }
        // 1. Tokenize
     QVector<QString> tokens = Tokenizer::tokenize(expr);

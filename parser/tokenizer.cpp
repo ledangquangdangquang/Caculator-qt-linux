@@ -52,6 +52,5 @@ QVector<QString> Tokenizer::tokenize(const QString& expr) {
         }
     }
 
-//    return tokens;
     return Tokenizer::fixMissingClosingParentheses(tokens);
 }
