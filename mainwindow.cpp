@@ -171,7 +171,13 @@ void MainWindow::on_key_equals_clicked()
     } else {
         // Bước 1: chuẩn hóa ký hiệu π/𝛑 thành "pi"
         expr.replace("𝛑", "pi");
+        // 9pi9 error hanle
+        static const QRegularExpression invalidPiNumber(R"(pi\d)");
 
+        if (invalidPiNumber.match(expr).hasMatch()) {
+            ui->plainTextEdit->appendPlainText("ERROR:Invalid expression, 'pi' cannot be directly followed by a number.");
+            return ; // Hoặc cách xử lý lỗi phù hợp
+        }
         // Bước 2: thêm * ngầm giữa số và pi
         static const QRegularExpression addMul(R"((\d)(pi))");
         expr.replace(addMul, R"(\1*\2)");
@@ -183,6 +189,13 @@ void MainWindow::on_key_equals_clicked()
     if (expr == "e") {
         expr = QString::number(M_E);
     } else {
+        // 9e9 error hanle
+        static const QRegularExpression invalidPiNumber(R"(e\d)");
+
+        if (invalidPiNumber.match(expr).hasMatch()) {
+            ui->plainTextEdit->appendPlainText("ERROR:Invalid expression, 'e' cannot be directly followed by a number.");
+            return ; // Hoặc cách xử lý lỗi phù hợp
+        }
         // Bước 2: thêm * ngầm giữa số và e
         static const QRegularExpression addMul(R"((\d)(e))");
         expr.replace(addMul, R"(\1*\2)");
