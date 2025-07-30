@@ -142,11 +142,10 @@ void MainWindow::on_key_equals_clicked()
         return;
     }
 
-    // 2. Chỉ cho phép từ 'mod'
-//    static const QRegularExpression wordRe(R"(\b(?!mod\b)[a-zA-Z]+\b)");
-    static const QRegularExpression wordRe(R"(\b(?!(sin|pi|cos|tan|cot|asin|acos|atan|log|ln|sqrt|abs|mod)\b)[a-zA-Z]+\b)");
+    // 2. Chỉ cho phép từ hop le
+    static const QRegularExpression wordRe(R"(\b(?!(sin|pi|cos|tan|cot|asin|acos|atan|log|ln|sqrt|abs|mod|)\b)[a-zA-Z]+\b)");
     if (wordRe.match(expr).hasMatch()) {
-        ui->plainTextEdit->appendPlainText("ERROR: unknown word (only 'mod' allowed)");
+        ui->plainTextEdit->appendPlainText("ERROR: unknown word");
         return;
     }
 
@@ -239,12 +238,13 @@ void MainWindow::handleKeyClicked()
     } else if (objName == "key_exp") {
         ui->plainTextEdit->insertPlainText("e^"); // Dùng ký hiệu mũ
     } else if (objName == "key_abs") {
-        ui->plainTextEdit->insertPlainText("|");
+        ui->plainTextEdit->insertPlainText("abs(");
     } else if (objName == "key_dot") {
         dotHandle();
     } else {
         ui->plainTextEdit->insertPlainText(btnText);
     }
+
     ui->plainTextEdit->setFocus();
 }
 // Clear button clicked (done)
