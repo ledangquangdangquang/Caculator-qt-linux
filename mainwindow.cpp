@@ -59,6 +59,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->actionClear_history, &QAction::triggered, this, &MainWindow::handleClearHistory);
     // About...
     connect(ui->actionAbout, &QAction::triggered, this, &MainWindow::handleAbout);
+
     // Ẩn các nút nâng cao ban đầu
     QStringList hideObjectNames = {
         "sin", "cos", "tan",
@@ -186,7 +187,7 @@ void MainWindow::on_key_equals_clicked()
         // Bước 3: thay "e" thành giá trị
         expr.replace("e", QString::number(M_E));
     }
-       // 1. Tokenize
+    // 1. Tokenize
     QVector<QString> tokens = Tokenizer::tokenize(expr);
     qDebug() << "Tokens:" << tokens;
 
@@ -237,7 +238,7 @@ void MainWindow::handleKeyClicked()
     } else if (objName == "key_abs") {
         ui->plainTextEdit->insertPlainText("abs(");
     } else if (objName == "key_dot") {
-        dotHandle();
+        ui->plainTextEdit->insertPlainText(".");
     } else {
         ui->plainTextEdit->insertPlainText(btnText);
     }

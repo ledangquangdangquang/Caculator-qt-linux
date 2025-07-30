@@ -13,6 +13,9 @@
 #include "logoperation.h" // log
 #include "lnoperation.h" //  ln
 #include "absoperation.h" //  abs
+#include "sinhoperation.h" // sinh
+#include "coshoperation.h" // cosh
+#include "tanhoperation.h" // tanh
 #include <QString>
 
 std::unique_ptr<Operation> OperationFactory::getOperation(const QString& op) {
@@ -30,5 +33,8 @@ std::unique_ptr<Operation> OperationFactory::getOperation(const QString& op) {
     else if (op == QString("log")) return std::make_unique<LogOperation>();
     else if (op == QString("ln")) return std::make_unique<LnOperation>();
     else if (op == QString("abs")) return std::make_unique<AbsOperation>();
+    else if (op == QString("sinh")) return std::make_unique<SinhOperation>();
+    else if (op == QString("cosh")) return std::make_unique<CoshOperation>();
+    else if (op == QString("tanh")) return std::make_unique<TanhOperation>();
     else return nullptr;
 }

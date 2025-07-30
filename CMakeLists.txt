@@ -37,7 +37,9 @@ set(PROJECT_SOURCES
         operation/logoperation.h	operation/logoperation.cpp
         operation/lnoperation.h 	operation/lnoperation.cpp
         operation/absoperation.h 	operation/absoperation.cpp
-
+        operation/sinhoperation.h	operation/sinhoperation.cpp
+        operation/coshoperation.h	operation/coshoperation.cpp
+        operation/tanhoperation.h 	operation/tanhoperation.cpp
         # Parser
         parser/tokenizer.h	parser/tokenizer.cpp
         parser/shuntingyard.h	parser/shuntingyard.cpp

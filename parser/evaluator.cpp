@@ -6,7 +6,8 @@
 
 bool Evaluator::isUnaryFunction(const QString& token) {
     static const QSet<QString> unaryFunctions = {
-        "sqrt", "sin", "cos", "tan", "cot", "log", "ln", "abs"
+        "sqrt", "sin", "cos", "tan", "cot", "log", "ln", "abs",
+        "sinh", "cosh", "tanh"
     };
     return unaryFunctions.contains(token);
 }
@@ -43,6 +44,14 @@ bool Evaluator::evaluate(const QVector<QString>& postfixTokens, double& result) 
                 res = std::round(std::cos(a * DEG2RAD) * scale) / scale;
             } else if (token == "tan") {
                 res = std::round(std::tan(a * DEG2RAD) * scale) / scale;
+
+            } else if (token == "sinh") {
+                res = std::round(std::sinh(a) * scale) / scale;
+            } else if (token == "cosh") {
+                res = std::round(std::cosh(a) * scale) / scale;
+            } else if (token == "tanh") {
+                res = std::round(std::tanh(a) * scale) / scale;
+
             } else if (token == "cot") {
                 double tanVal = std::tan(a * DEG2RAD);
                 if (tanVal == 0) {

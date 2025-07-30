@@ -20,7 +20,9 @@ bool ShuntingYard::isFunction(const QString& token) {
     return token == "sqrt" || token == "sin" ||
            token == "cos" || token == "tan" ||
            token == "cot" || token == "log" ||
-           token == "ln" || token == "abs" ;
+           token == "ln" || token == "abs" ||
+           token == "sinh" || token == "cosh" ||
+           token == "tanh";
 }
 
 QVector<QString> ShuntingYard::toPostfix(const QVector<QString>& tokens) {
