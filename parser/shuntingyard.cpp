@@ -22,7 +22,9 @@ bool ShuntingYard::isFunction(const QString& token) {
            token == "cot" || token == "log" ||
            token == "ln" || token == "abs" ||
            token == "sinh" || token == "cosh" ||
-           token == "tanh";
+           token == "tanh" ||  token == "Re" ||
+           token == "Im" || token == "Arg" ||
+           token == "conj";
 }
 
 QVector<QString> ShuntingYard::toPostfix(const QVector<QString>& tokens) {
@@ -73,6 +75,10 @@ QVector<QString> ShuntingYard::toPostfix(const QVector<QString>& tokens) {
         token.toDouble(&isNumber);
         if (isNumber) {
             outputQueue.append(token);
+        }
+        // Nếu token là hằng số e (Euler)
+        else if (token == "e") {
+            outputQueue.append("2.718281828459045"); // hoặc QString::number(M_E, 'g', 15)
         }
         // Nếu token là số phức "i"
         else if (token == "i") {

@@ -16,6 +16,10 @@
 #include "sinhoperation.h" // sinh
 #include "coshoperation.h" // cosh
 #include "tanhoperation.h" // tanh
+#include "reoperation.h" // Re
+#include "imoperation.h" // Im
+#include "argoperation.h" // Arg
+#include "conjoperation.h"// Conj
 #include <QString>
 
 std::unique_ptr<Operation> OperationFactory::getOperation(const QString& op) {
@@ -36,5 +40,9 @@ std::unique_ptr<Operation> OperationFactory::getOperation(const QString& op) {
     else if (op == QString("sinh")) return std::make_unique<SinhOperation>();
     else if (op == QString("cosh")) return std::make_unique<CoshOperation>();
     else if (op == QString("tanh")) return std::make_unique<TanhOperation>();
+    else if (op == QString("Re")) return std::make_unique<ReOperation>();
+    else if (op == QString("Im")) return std::make_unique<ImOperation>();
+    else if (op == QString("Arg")) return std::make_unique<ArgOperation>();
+    else if (op == QString("conj")) return std::make_unique<ConjOperation>();
     else return nullptr;
 }

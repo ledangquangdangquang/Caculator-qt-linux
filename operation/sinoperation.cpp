@@ -1,5 +1,4 @@
 #include "sinoperation.h"
-
 #include <cmath>
 #include <stdexcept>
 

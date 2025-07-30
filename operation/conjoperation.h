@@ -1,13 +1,12 @@
-#ifndef SINOPERATION_H
-#define SINOPERATION_H
+#ifndef CONJOPERATION_H
+#define CONJOPERATION_H
 
 #include "operation.h"
 
-class SinOperation : public Operation
+class ConjOperation : public Operation
 {
 public:
     Complex execute(const Complex &a, const Complex &b = Complex(0)) const override;
 };
 
-
-#endif //	SINOPERATION_H
+#endif // CONJOPERATION_H

@@ -40,6 +40,10 @@ set(PROJECT_SOURCES
         operation/sinhoperation.h	operation/sinhoperation.cpp
         operation/coshoperation.h	operation/coshoperation.cpp
         operation/tanhoperation.h 	operation/tanhoperation.cpp
+        operation/reoperation.h		operation/reoperation.cpp
+        operation/imoperation.h 	operation/imoperation.cpp
+        operation/argoperation.h 	operation/argoperation.cpp
+        operation/conjoperation.h	operation/conjoperation.cpp
         # Parser
         parser/tokenizer.h	parser/tokenizer.cpp
         parser/shuntingyard.h	parser/shuntingyard.cpp
