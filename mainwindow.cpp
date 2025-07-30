@@ -166,47 +166,14 @@ void MainWindow::on_key_equals_clicked()
     expr.replace("%", "0.01");
 
     // Pi handle (done)
-    if (expr.trimmed() == "𝛑") {
-        expr = QString::number(M_PI);
-    } else {
-        // Bước 1: chuẩn hóa ký hiệu π/𝛑 thành "pi"
-        expr.replace("𝛑", "pi");
-        // 9pi9 error hanle
-        static const QRegularExpression invalidPiNumber(R"(pi\d)");
+    expr.replace("𝛑", "pi");
+    static const QRegularExpression addMulPi(R"((\d)(pi))");
+    expr.replace(addMulPi, R"(\1*\2)");
 
-        if (invalidPiNumber.match(expr).hasMatch()) {
-            ui->plainTextEdit->appendPlainText("ERROR:Invalid expression, 'pi' cannot be directly followed by a number.");
-            return ; // Hoặc cách xử lý lỗi phù hợp
-        }
-        // Bước 2: thêm * ngầm giữa số và pi
-        static const QRegularExpression addMul(R"((\d)(pi))");
-        expr.replace(addMul, R"(\1*\2)");
-
-        // Bước 3: thay "pi" thành giá trị
-        expr.replace("pi", QString::number(M_PI));
-    }
     // e handle (done)
-    // Chèn * giữa số và biến/hằng/fun (ví dụ: 6e → 6*e, 2pi → 2*pi, 3Re → 3*Re)
-    expr.replace(QRegularExpression(R"((\d)(e))"), R"(\1*\2)");
-// Co ve ok
-    // h toi phai lam tuong tu voi pi
-//    if (expr == "e") {
-//        expr = QString::number(M_E);
-//    } else {
-//        // 9e9 error hanle
-//        static const QRegularExpression invalidPiNumber(R"(e\d)");
+    static const QRegularExpression addMulE(R"((\d)(e))");
+    expr.replace(addMulE, R"(\1*\2)");
 
-//        if (invalidPiNumber.match(expr).hasMatch()) {
-//            ui->plainTextEdit->appendPlainText("ERROR:Invalid expression, 'e' cannot be directly followed by a number.");
-//            return ; // Hoặc cách xử lý lỗi phù hợp
-//        }
-//        // Bước 2: thêm * ngầm giữa số và e
-//        static const QRegularExpression addMul(R"((\d)(e))");
-//        expr.replace(addMul, R"(\1*\2)");
-
-//        // Bước 3: thay "e" thành giá trị
-//        expr.replace("e", QString::number(M_E));
-//    }
     // 1. Tokenize
     QVector<QString> tokens = Tokenizer::tokenize(expr);
     qDebug() << "Tokens:" << tokens;

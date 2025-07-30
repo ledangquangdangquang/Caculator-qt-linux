@@ -1,6 +1,7 @@
 #include "shuntingyard.h"
 #include <QStack>
 #include <QDebug>
+#include <cmath>
 
 int ShuntingYard::precedence(const QString& op) {
     if (op == "+" || op == "-") return 1;
@@ -78,7 +79,11 @@ QVector<QString> ShuntingYard::toPostfix(const QVector<QString>& tokens) {
         }
         // Nếu token là hằng số e (Euler)
         else if (token == "e") {
-            outputQueue.append("2.718281828459045"); // hoặc QString::number(M_E, 'g', 15)
+            outputQueue.append(QString::number(M_E)); // hoặc QString::number(M_E, 'g', 15)
+        }
+        // Nếu token là hằng số e (Euler)
+        else if (token == "pi") {
+            outputQueue.append(QString::number(M_PI)); // hoặc QString::number(M_E, 'g', 15)
         }
         // Nếu token là số phức "i"
         else if (token == "i") {
