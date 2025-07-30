@@ -12,6 +12,7 @@
 #include "parser/tokenizer.h"
 #include "parser/shuntingyard.h"
 #include "parser/evaluator.h"
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -22,7 +23,13 @@ MainWindow::MainWindow(QWidget *parent)
                        "5", "6", "7", "8", "9",
                        "sym9", "sym0", "mod", "pi",
                        "square_root", "x_squared", "percent", "dot",
-                       "add", "sub", "mul", "div"};
+                       "add", "sub", "mul", "div",
+                        "sin","cos","tan",
+                        "sinh","cosh","tanh",
+                        "exp","ln","log",
+                        "i","re","im",
+                        "abs","conj","arg",
+    };
 
     for (const QString& op : ops) {
         QString btnName = "key_" + op;
@@ -59,7 +66,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->key_sinh->hide();
     ui->key_cosh->hide();
     ui->key_tanh->hide();
-    ui->key_e->hide();
+    ui->key_exp->hide();
     ui->key_ln->hide();
     ui->key_log->hide();
     ui->key_i->hide();
@@ -83,7 +90,7 @@ void MainWindow::resizeEvent(QResizeEvent *event)
         ui->key_sinh->show();
         ui->key_cosh->show();
         ui->key_tanh->show();
-        ui->key_e->show();
+        ui->key_exp->show();
         ui->key_ln->show();
         ui->key_log->show();
         ui->key_i->show();
@@ -99,7 +106,7 @@ void MainWindow::resizeEvent(QResizeEvent *event)
         ui->key_sinh->hide();
         ui->key_cosh->hide();
         ui->key_tanh->hide();
-        ui->key_e->hide();
+        ui->key_exp->hide();
         ui->key_ln->hide();
         ui->key_log->hide();
         ui->key_i->hide();
