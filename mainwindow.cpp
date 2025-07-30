@@ -224,10 +224,22 @@ void MainWindow::handleKeyClicked()
     QString btnText = btn->text();
     QString objName = btn->objectName(); // Lấy objectName để xử lý các trường hợp đặc biệt
 
-    if (objName == "key_square_root") {
-        ui->plainTextEdit->insertPlainText("√("); // Thêm luôn dấu mở ngoặc
+    if (objName == "key_square_root" ||objName == "key_sin"
+            ||objName == "key_cos"||objName == "key_tan"
+            ||objName == "key_sinh"||objName == "key_cosh"
+            ||objName == "key_tanh"
+            ||objName == "key_ln"||objName == "key_log"
+            ||objName == "key_re"||objName == "key_im"
+            ||objName == "key_conj"||objName == "key_arg"
+        )
+    {
+        ui->plainTextEdit->insertPlainText(btnText + "(");
     } else if (objName == "key_x_squared") {
         ui->plainTextEdit->insertPlainText("^2"); // Dùng ký hiệu mũ
+    } else if (objName == "key_exp") {
+        ui->plainTextEdit->insertPlainText("e^"); // Dùng ký hiệu mũ
+    } else if (objName == "key_abs") {
+        ui->plainTextEdit->insertPlainText("|");
     } else if (objName == "key_dot") {
         dotHandle();
     } else {
@@ -240,7 +252,6 @@ void MainWindow::on_key_clear_clicked()
 {
     ui->plainTextEdit->clear();
     ui->plainTextEdit->setFocus();
-
 }
 
 void MainWindow::dotHandle()
