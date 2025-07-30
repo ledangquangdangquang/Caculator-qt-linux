@@ -5,7 +5,8 @@
 
 class ModOperation : public Operation {
 public:
-    double execute(double a, double b) const override;
+//    double execute(double a, double b) const override;
+    Complex execute(const Complex &a, const Complex &b ) const override;
 };
 
 #endif // MODOPERATION_H

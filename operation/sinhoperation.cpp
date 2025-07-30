@@ -2,6 +2,6 @@
 #include <cmath>
 #include <stdexcept>
 
-double SinhOperation::execute(double a, double /*b*/) const {
+Complex SinhOperation::execute(const Complex &a, const Complex &b) const {
     return std::sinh(a);
 }

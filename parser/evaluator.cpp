@@ -3,6 +3,13 @@
 #include <QDebug>
 #include <QSet>
 #include <cmath>
+Complex  Evaluator::roundComplex(const Complex& z, int decimals) {
+    double scale = std::pow(10.0, decimals);
+    return Complex(
+        std::round(z.real() * scale) / scale,
+        std::round(z.imag() * scale) / scale
+        );
+}
 
 bool Evaluator::isUnaryFunction(const QString& token) {
     static const QSet<QString> unaryFunctions = {
@@ -11,17 +18,19 @@ bool Evaluator::isUnaryFunction(const QString& token) {
     };
     return unaryFunctions.contains(token);
 }
-bool Evaluator::evaluate(const QVector<QString>& postfixTokens, double& result) {
-    QStack<double> stack;
-    constexpr double DEG2RAD = M_PI / 180.0;
+bool Evaluator::evaluate(const QVector<QString>& postfixTokens, Complex& result) {
+    QStack<Complex> stack;
+    constexpr Complex DEG2RAD = M_PI / 180.0;
     int decimals = 5; // Lam tron den 5 chu so thap phan
-    double scale = std::pow(10, decimals);
+//    Complex scale = std::pow(10, decimals);
     for (const QString& token : postfixTokens) {
         bool isNumber;
-        double val = token.toDouble(&isNumber);
+        double realVal= token.toDouble(&isNumber);
 
         if (isNumber) {
-            stack.push(val);
+            stack.push(Complex(realVal, 0));
+        } else if (token == "i") {
+            stack.push(Complex(0, 1));
         }
         else if (isUnaryFunction(token)) {
             if (stack.isEmpty()) {
@@ -29,51 +38,50 @@ bool Evaluator::evaluate(const QVector<QString>& postfixTokens, double& result) 
                 return false;
             }
 
-            double a = stack.pop();
-            double res;
+            Complex a = stack.pop();
+            Complex res;
 
             if (token == "sqrt") {
-                if (a < 0) {
-                    qWarning() << "Error: sqrt of negative number";
+                if (a.imag() != 0 || a.real() < 0) {
+                    qWarning() << "Error: sqrt of negative or complex number";
                     return false;
                 }
                 res = std::sqrt(a);
             } else if (token == "sin") {
-                res = std::round(std::sin(a * DEG2RAD) * scale) / scale;
+                res = roundComplex(std::sin(a * DEG2RAD), decimals);
             } else if (token == "cos") {
-                res = std::round(std::cos(a * DEG2RAD) * scale) / scale;
+                res = roundComplex(std::cos(a * DEG2RAD), decimals);
             } else if (token == "tan") {
-                res = std::round(std::tan(a * DEG2RAD) * scale) / scale;
-
+                res = roundComplex(std::tan(a * DEG2RAD), decimals);
             } else if (token == "sinh") {
-                res = std::round(std::sinh(a) * scale) / scale;
+                res = roundComplex(std::sinh(a), decimals);
             } else if (token == "cosh") {
-                res = std::round(std::cosh(a) * scale) / scale;
+                res = roundComplex(std::cosh(a), decimals);
             } else if (token == "tanh") {
-                res = std::round(std::tanh(a) * scale) / scale;
-
+                res = roundComplex(std::tanh(a), decimals);
             } else if (token == "cot") {
-                double tanVal = std::tan(a * DEG2RAD);
-                if (tanVal == 0) {
-                    qWarning() << "Error: cotangent undefined (tan = 0)";
+                Complex tanVal = std::tan(a * DEG2RAD);
+                if (std::abs(tanVal) < 1e-12) {  // tránh chia cho 0
+                    qWarning() << "Error: cotangent undefined (tan ≈ 0)";
                     return false;
                 }
-                res = std::round(1.0 / tanVal * scale) / scale;
+                res = roundComplex(Complex(1.0) / tanVal, decimals);
             } else if (token == "log") {
-                if (a <= 0) {
-                    qWarning() << "Error: log of non-positive number";
+                if (a.real() <= 0 && std::abs(a.imag()) < 1e-12) {
+                    qWarning() << "Error: log of non-positive real number";
                     return false;
                 }
-                res = std::round(std::log10(a) * scale) / scale;
+                res = roundComplex(std::log10(a), decimals);
             } else if (token == "ln") {
-                if (a <= 0) {
-                    qWarning() << "Error: ln of non-positive number";
+                if (a.real() <= 0 && std::abs(a.imag()) < 1e-12) {
+                    qWarning() << "Error: ln of non-positive real number";
                     return false;
                 }
-                res = std::round(std::log(a) * scale) / scale;
+                res = roundComplex(std::log(a), decimals);
             } else if (token == "abs") {
-                res = std::fabs(a);
-            } else {
+                res = Complex(std::abs(a), 0);  // Trị tuyệt đối là số thực
+            }
+                    else {
                 qWarning() << "Error: unknown function" << token;
                 return false;
             }
@@ -87,8 +95,8 @@ bool Evaluator::evaluate(const QVector<QString>& postfixTokens, double& result) 
                 return false;
             }
 
-            double b = stack.pop();
-            double a = stack.pop();
+            Complex b = stack.pop();
+            Complex a = stack.pop();
 
             auto operation = OperationFactory::getOperation(token);
             if (!operation) {

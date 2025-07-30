@@ -2,7 +2,7 @@
 #include <cmath>
 #include <stdexcept>
 
-double CotOperation::execute(double a, double /*b*/) const {
-    return 1/std::tan(a);
+Complex CotOperation::execute(const Complex &a, const Complex &b) const {
+    return Complex(1.0)/std::tan(a);
 }
 

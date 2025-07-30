@@ -1,5 +1,5 @@
 #include "muloperation.h"
 
-double MulOperation::execute(double a, double b) const {
+Complex MulOperation::execute(const Complex &a, const Complex &b) const {
     return a * b;
 }

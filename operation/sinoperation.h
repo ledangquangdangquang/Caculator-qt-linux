@@ -3,9 +3,11 @@
 
 #include "operation.h"
 
-class SinOperation : public Operation {
+class SinOperation : public Operation
+{
 public:
-    double execute(double a, double b = 0) const override;
+ Complex execute(const Complex &a, const Complex &b = Complex(0)) const override;
 };
+
 
 #endif //	SINOPERATION_H

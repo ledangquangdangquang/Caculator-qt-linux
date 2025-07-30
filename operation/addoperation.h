@@ -5,7 +5,7 @@
 
 class AddOperation : public Operation {
 public:
-    double execute(double a, double b) const override;  // chỉ khai báo
+    Complex execute(const Complex &a, const Complex &b) const override;  // chỉ khai báo
 };
 
 #endif

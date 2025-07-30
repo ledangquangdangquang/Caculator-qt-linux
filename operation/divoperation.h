@@ -7,7 +7,7 @@
 
 class DivOperation : public Operation {
 public:
-    double execute(double a, double b) const override;
+    Complex execute(const Complex &a, const Complex &b) const override;  // chỉ khai báo
 };
 
 #endif // DIVOPERATION_H

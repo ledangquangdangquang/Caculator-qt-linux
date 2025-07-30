@@ -1,7 +1,7 @@
 #include "powoperation.h"
 #include <cmath>
 
-double PowOperation::execute(double a, double b) const
+Complex PowOperation::execute(const Complex &a, const Complex &b) const
 {
     return pow(a, b);
 }

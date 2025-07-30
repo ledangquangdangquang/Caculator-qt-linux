@@ -2,6 +2,6 @@
 #include <cmath>
 #include <stdexcept>
 
-double TanhOperation::execute(double a, double /*b*/) const {
+Complex TanhOperation::execute(const Complex &a, const Complex &b) const {
     return std::tanh(a);
 }

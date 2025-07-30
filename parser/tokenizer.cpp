@@ -1,5 +1,33 @@
 #include "tokenizer.h"
 #include <QRegularExpression>
+#include "shuntingyard.h"
+
+QVector<QString> Tokenizer::insertImplicitMultiplication(QVector<QString>& tokens) {
+    QVector<QString> result;
+
+    for (int i = 0; i < tokens.size(); ++i) {
+        QString cur = tokens[i];
+        result.append(cur);
+
+        if (i + 1 < tokens.size()) {
+            QString next = tokens[i + 1];
+
+            // Kiểm tra điều kiện chèn dấu *
+            bool curIsNumberOrCloseParenOrI =
+                (!cur.isEmpty() && cur[0].isDigit()) || cur == ")" || cur == "i";
+
+            bool nextIsNumberOrFuncOrOpenParenOrI =
+                (!next.isEmpty() && next[0].isDigit()) || next == "(" || next == "i" || ShuntingYard::isFunction(next);
+
+            if (curIsNumberOrCloseParenOrI && nextIsNumberOrFuncOrOpenParenOrI) {
+                result.append("*");
+            }
+        }
+    }
+
+    return result;
+}
+
 QVector<QString> Tokenizer::fixMissingClosingParentheses(const QVector<QString>& tokens) {
     QVector<QString> fixedTokens = tokens;
     int openCount = 0;
@@ -44,13 +72,13 @@ QVector<QString> Tokenizer::tokenize(const QString& expr) {
                 ++i;
             }
             tokens.append(current);
-        }
-        else {
+        }        else {
             // Ký tự đặc biệt như + - * / ( ) ...
             tokens.append(QString(ch));
             ++i;
         }
     }
-
-    return Tokenizer::fixMissingClosingParentheses(tokens);
+    tokens = Tokenizer::fixMissingClosingParentheses(tokens); // handle 6(2 = 6(2)
+    tokens = Tokenizer::insertImplicitMultiplication(tokens); // handle 6(2) = 6 * 2
+    return tokens;
 }

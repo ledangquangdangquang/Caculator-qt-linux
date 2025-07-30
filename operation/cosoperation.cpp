@@ -3,6 +3,6 @@
 #include <cmath>
 #include <stdexcept>
 
-double CosOperation::execute(double a, double /*b*/) const {
+Complex CosOperation::execute(const Complex &a, const Complex &b) const {
     return std::cos(a);
 }

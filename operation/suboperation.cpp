@@ -1,6 +1,6 @@
 #include "suboperation.h"
 
-double SubOperation::execute(double a, double b) const {
+Complex SubOperation::execute(const Complex &a, const Complex &b) const {
     return a - b;
 }
 

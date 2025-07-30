@@ -130,7 +130,7 @@ void MainWindow::on_key_equals_clicked()
     }
 
     // 2. Chỉ cho phép từ hop le
-    static const QRegularExpression wordRe(R"(\b(?!(sin|pi|cos|tan|cot|asin|acos|atan|log|ln|sqrt|abs|mod|)\b)[a-zA-Z]+\b)");
+    static const QRegularExpression wordRe(R"(\b(?!(sin|pi|cos|i|tan|cot|asin|acos|atan|log|ln|sqrt|abs|mod|)\b)[a-zA-Z]+\b)");
     if (wordRe.match(expr).hasMatch()) {
         ui->plainTextEdit->appendPlainText("ERROR: unknown word");
         return;
@@ -153,9 +153,12 @@ void MainWindow::on_key_equals_clicked()
     // --------------------------------------------
     expr.replace(QChar(0x00D7), "*"); // × => *
     expr.replace(QChar(0x00F7), "/"); // ÷ => /
+    // i handle (done)
+    static const QRegularExpression addIMultiplier(R"((\d+)\s*i)");
+    expr.replace(addIMultiplier, "\\1*i");
+
+    // sqrt handle 6sqrt(6) (done)
     expr.replace(QChar(0x221A), "sqrt");
-    static const QRegularExpression addSqrt(R"((\d)(sqrt))");
-    expr.replace(addSqrt, R"(\1*\2)");
 
     // `%` handle (done)
     static const QRegularExpression addMulPercent(R"((\d)(%))");
@@ -196,7 +199,7 @@ void MainWindow::on_key_equals_clicked()
     qDebug() << "Postfix:" << postfix;
 
     // 3. Tính toán
-    double result = 0;
+    Complex result = Complex(0);
     bool ok = Evaluator::evaluate(postfix, result);
     if (!ok) {
         ui->plainTextEdit->appendPlainText("ERROR: Calculation failed");
@@ -204,11 +207,21 @@ void MainWindow::on_key_equals_clicked()
     }
 
     // Hiển thị kết quả
-    ui->plainHistory->appendPlainText(expr + " = " + QString::number(result));
+    QString resultStr;
+    if (result.imag() == 0) {
+        resultStr = QString::number(result.real());
+    } else if (result.real() == 0) {
+        resultStr = QString("%1i").arg(result.imag());
+    } else {
+        resultStr = QString("%1 + %2i").arg(result.real()).arg(result.imag());
+    }
+
+    ui->plainHistory->appendPlainText(expr + " = " + resultStr);
 
     ui->plainTextEdit->clear();
-    ui->plainTextEdit->insertPlainText(QString::number(result));
+    ui->plainTextEdit->insertPlainText(resultStr);
     ui->plainTextEdit->setFocus();
+
 }
 
 

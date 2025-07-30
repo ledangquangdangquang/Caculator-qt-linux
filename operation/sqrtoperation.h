@@ -5,7 +5,7 @@
 
 class SqrtOperation : public Operation {
 public:
-    double execute(double a, double b = 0) const override;
+ Complex execute(const Complex &a, const Complex &b = Complex(0)) const override;
 };
 
 #endif // SQRTOPERATION_H

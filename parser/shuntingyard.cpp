@@ -74,6 +74,10 @@ QVector<QString> ShuntingYard::toPostfix(const QVector<QString>& tokens) {
         if (isNumber) {
             outputQueue.append(token);
         }
+        // Nếu token là số phức "i"
+        else if (token == "i") {
+            outputQueue.append(token);
+        }
         // Nếu là hàm
         else if (isFunction(token)) {
             operatorStack.push(token);

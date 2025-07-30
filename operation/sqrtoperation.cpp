@@ -1,8 +1,12 @@
 #include "sqrtoperation.h"
 #include <cmath>
 #include <stdexcept>
+#include <complex>
 
-double SqrtOperation::execute(double a, double /*b*/) const {
-    if (a < 0) throw std::domain_error("Square root of negative number");
+Complex SqrtOperation::execute(const Complex &a, const Complex &b) const {
+    // Chỉ báo lỗi nếu a là số thực âm (phần ảo = 0, phần thực < 0)
+    if (a.imag() == 0 && a.real() < 0)
+        throw std::domain_error("Square root of negative real number");
+
     return std::sqrt(a);
 }

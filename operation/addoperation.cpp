@@ -1,6 +1,6 @@
 #include "addoperation.h"
 
-double AddOperation::execute(double a, double b) const {
+Complex AddOperation::execute(const Complex &a, const Complex &b) const {
     return a + b;
 }
 

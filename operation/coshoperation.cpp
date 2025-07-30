@@ -2,6 +2,6 @@
 #include <cmath>
 #include <stdexcept>
 
-double CoshOperation::execute(double a, double /*b*/) const {
+Complex CoshOperation::execute(const Complex &a, const Complex &b) const {
     return std::cosh(a);
 }

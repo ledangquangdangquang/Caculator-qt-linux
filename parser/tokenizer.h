@@ -10,7 +10,7 @@ public:
     static QVector<QString> tokenize(const QString& expr);
 private:
     static QVector<QString> fixMissingClosingParentheses(const QVector<QString>& tokens);
-
+    static QVector<QString> insertImplicitMultiplication(QVector<QString>& tokens);
 };
 
 #endif // TOKENIZER_H
