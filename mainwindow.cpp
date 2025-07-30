@@ -137,7 +137,7 @@ void MainWindow::on_key_equals_clicked()
     }
 
     // 3. Có ít nhất một chữ số
-    static const QRegularExpression digitRe(R"(\d|𝛑|e)");
+    static const QRegularExpression digitRe(R"(\d|𝛑|e|i)");
     if (!digitRe.match(expr).hasMatch()) {
         ui->plainTextEdit->appendPlainText("ERROR: expression must contain number(s)");
         return;
