@@ -1,7 +1,7 @@
 # Caculator-qt-linux
 ## Install
 See in releases.
-# AppImage Build
+## AppImage Build
 ---
 
 ### ✅ BƯỚC 1: **Build app ra thư mục AppDir (giả sử bạn build CMake ra build/)**
