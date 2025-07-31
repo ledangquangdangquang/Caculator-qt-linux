@@ -56,7 +56,16 @@ QVector<QString> Tokenizer::tokenize(const QString& expr) {
     const int len = expr.length();
 
     // Danh sách các từ khóa đặc biệt
-    QStringList knownWords = {"pi", "e", "i", "Re", "Im", "sqrt", "mod", "conj"};
+    QStringList knownWords = {
+        "pi", "e", "i",
+        "Re", "Im", "conj",
+        "sqrt", "mod",
+        "sin", "cos", "tan", "cot", "sec", "csc",
+        "asin", "acos", "atan",
+        "sinh", "cosh", "tanh",
+        "log", "ln", "exp",
+    };
+
 
     while (i < len) {
         QChar ch = expr[i];
