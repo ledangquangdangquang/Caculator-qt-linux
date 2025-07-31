@@ -8,9 +8,3 @@ export LD_LIBRARY_PATH=~/qt6/host/lib
 chmod +x banPhimHost
 ./banPhimHost
 ```
-## Exception not handle 
-```
-e(9)
-5,(4)
-check spell 
-```
