@@ -2,7 +2,6 @@
 ## Install
 See in releases.
 ## AppImage Build
----
 
 ### ✅ BƯỚC 1: **Build app ra thư mục AppDir (giả sử bạn build CMake ra build/)**
 
