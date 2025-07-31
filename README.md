@@ -2,10 +2,12 @@
 ## Install
 See in releases.
 ## Demo
-- Origin calculator:
+- ***Origin calculator:***
+
 ![orign calculator](./assets/origin-calculator.png) 
 
-- Full calculator:
+- ***Full calculator:***
+
 ![full calculator](./assets/full-calculator.png) 
 ## AppImage Build
 
