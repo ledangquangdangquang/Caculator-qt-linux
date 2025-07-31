@@ -39,13 +39,13 @@ bool Evaluator::evaluate(const QVector<QString>& postfixTokens, Complex& result)
             // Lấy operation từ factory
             auto operation = OperationFactory::getOperation(token);
             if (!operation) {
-                qWarning() << "Error: unknown operator or function:" << token;
+                qWarning() << "ERROR: unknown operator or function:" << token;
                 return false;
             }
 
             if (isUnaryFunction(token)) {
                 if (stack.isEmpty()) {
-                    qWarning() << "Error: stack empty for unary operation:" << token;
+                    qWarning() << "ERROR: stack empty for unary operation:" << token;
                     return false;
                 }
                 Complex a = stack.pop();
@@ -53,16 +53,16 @@ bool Evaluator::evaluate(const QVector<QString>& postfixTokens, Complex& result)
                 // Kiểm tra lỗi đặc biệt
                 if (token == "sqrt") {
                     if (a.imag() != 0 || a.real() < 0) {
-                        qWarning() << "Error: sqrt of negative or complex number";
+                        qWarning() << "ERROR: sqrt of negative or complex number";
                         return false;
                     }
                 } else if ((token == "log" || token == "ln") && (a.real() <= 0 && std::abs(a.imag()) < 1e-12)) {
-                    qWarning() << "Error: log/ln of non-positive real number";
+                    qWarning() << "ERROR: log/ln of non-positive real number";
                     return false;
                 } else if (token == "cot") {
                     Complex tanVal = std::tan(a * DEG2RAD);
                     if (std::abs(tanVal) < 1e-12) {
-                        qWarning() << "Error: cotangent undefined (tan ≈ 0)";
+                        qWarning() << "ERROR: cotangent undefined (tan ≈ 0)";
                         return false;
                     }
                 }
@@ -72,7 +72,7 @@ bool Evaluator::evaluate(const QVector<QString>& postfixTokens, Complex& result)
             } else {
                 // Phép toán nhị phân
                 if (stack.size() < 2) {
-                    qWarning() << "Error: stack too small for binary operator:" << token;
+                    qWarning() << "ERROR: stack too small for binary operator:" << token;
                     return false;
                 }
                 Complex b = stack.pop();
@@ -85,7 +85,7 @@ bool Evaluator::evaluate(const QVector<QString>& postfixTokens, Complex& result)
     }
 
     if (stack.size() != 1) {
-        qWarning() << "Error: stack size after evaluation not 1";
+        qWarning() << "ERROR: stack size after evaluation not 1";
         return false;
     }
 

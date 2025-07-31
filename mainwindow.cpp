@@ -37,7 +37,6 @@ MainWindow::MainWindow(QWidget *parent)
         connect(btn, &QPushButton::clicked, this, &MainWindow::handleKeyClicked);
     }
     // Handle Enter key, Enter numpad key, Equal key (done)
-    // connect signal returnPressed() from MyPlainTextEdit
     connect(ui->plainTextEdit, &MyPlainTextEdit::returnPressed,
             this, &MainWindow::on_key_equals_clicked);
     QShortcut* enterShortcut = new QShortcut(QKeySequence(Qt::Key_Return), this); // real enter
@@ -60,7 +59,7 @@ MainWindow::MainWindow(QWidget *parent)
     // About...
     connect(ui->actionAbout, &QAction::triggered, this, &MainWindow::handleAbout);
 
-    // Ẩn các nút nâng cao ban đầu
+    // Hide button extend
     QStringList hideObjectNames = {
         "sin", "cos", "tan",
         "sinh", "cosh", "tanh",
@@ -110,7 +109,6 @@ void MainWindow::handleAbout() {
 void MainWindow::handleClearHistory() {
     ui->plainHistory->clear();
 }
-// Enter = Button "=" (done)
 // Fillter no a number (done)
 // Event when buttoon "=" cliked (NOT DONE)
 void MainWindow::on_key_equals_clicked()
