@@ -1,12 +1,6 @@
 # Caculator-qt-linux
-## install
-```
-wget https://github.com/ledangquangdangquang/Caculator-qt-linux/releases/download/v0.0.2/BanPhimHost-x86_64.AppImage
-chmod +x BanPhimHost-x86_64.AppImage
-sudo apt update
-sudo apt install libfuse2
-./BanPhimHost-x86_64.appimage
-```
+## Install
+See in releases.
 # AppImage Build
 ---
 
