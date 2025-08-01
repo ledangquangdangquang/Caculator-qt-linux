@@ -1,4 +1,5 @@
-# Caculator-qt-linux
+<h1 align="center"> Caculator-qt-linux </h1>
+
 ## Install
 See in releases.
 ## Demo
