@@ -96,7 +96,7 @@ void MainWindow::handleUpdate() {
             chmod +x Calculator-x86_64.AppImage
             echo "✅ Cập nhật xong. Đang khởi chạy lại..."
             sleep 1
-            ./BanPhimHost-x86_64.AppImage
+            ./Calculator-x86_64.AppImage
         '
     )").arg(dir);
 
