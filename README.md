@@ -3,13 +3,10 @@
 ## Install
 See in releases.
 ## Demo
-- ***Origin calculator:***
+| ***Origin calculator*** | ***Full calculator***|
+| -------------- | --------------- |
+| ![orign calculator](https://raw.githubusercontent.com/ledangquangdangquang/Caculator-qt-linux/refs/heads/main/assets/origin-calculator.png) | ![full calculator](https://raw.githubusercontent.com/ledangquangdangquang/Caculator-qt-linux/refs/heads/main/assets/full-calculator.png)|
 
-![orign calculator](./assets/origin-calculator.png) 
-
-- ***Full calculator:***
-
-![full calculator](./assets/full-calculator.png) 
 ## AppImage Build
 
 ### ✅ BƯỚC 1: **Build app ra thư mục AppDir (giả sử bạn build CMake ra build/)**
