@@ -15,7 +15,7 @@
 #include <QFileInfo>
 #include <QProcess>
 #include <QStringList>
-
+#define VERSION "v0.0.5"
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -92,7 +92,7 @@ void MainWindow::handleUpdate() {
         cd "%1"
         exec bash -c '
             echo "🛠 Đang cập nhật Calculator..."
-            wget -O Calculator-x86_64.AppImage https://github.com/ledangquangdangquang/Caculator-qt-linux/releases/latest/download/BanPhimHost-x86_64.AppImage
+            wget -O Calculator-x86_64.AppImage https://github.com/ledangquangdangquang/Caculator-qt-linux/releases/latest/download/Calculator-x86_64.AppImage
             chmod +x Calculator-x86_64.AppImage
             echo "✅ Cập nhật xong. Đang khởi chạy lại..."
             sleep 1
@@ -129,14 +129,15 @@ void MainWindow::resizeEvent(QResizeEvent *event)
 }
 // Show about (done)
 void MainWindow::handleAbout() {
-    QMessageBox::information(this, "Calculator about", "Calculator v0.0.1\n(c) ledangquangdangquang");
+    QMessageBox::information(this, "Calculator about",
+                             QString("Calculator %1\n(c) ledangquangdangquang").arg(VERSION));
 }
 // Clear history (done)
 void MainWindow::handleClearHistory() {
     ui->plainHistory->clear();
 }
 // Fillter no a number (done)
-// Event when buttoon "=" cliked (NOT DONE)
+// Event when buttoon "=" cliked (DONE)
 void MainWindow::on_key_equals_clicked()
 {
     if (ui->plainTextEdit->toPlainText().isEmpty()) {
