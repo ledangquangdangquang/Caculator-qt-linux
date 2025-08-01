@@ -6,7 +6,7 @@
 | ![orign calculator](https://raw.githubusercontent.com/ledangquangdangquang/Caculator-qt-linux/refs/heads/main/assets/origin-calculator.png) | ![full calculator](https://raw.githubusercontent.com/ledangquangdangquang/Caculator-qt-linux/refs/heads/main/assets/full-calculator.png)|
 
 ## Install
-See in releases.
+See in [releases](https://github.com/ledangquangdangquang/Caculator-qt-linux/releases).
 ## AppImage Build
 
 ### BƯỚC 1: **Build app ra thư mục AppDir (giả sử bạn build CMake ra build/)**
