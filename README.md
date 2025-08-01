@@ -1,12 +1,12 @@
 <h1 align="center"> Caculator-qt-linux </h1>
 
-## Install
-See in releases.
 ## Demo
 | ***Origin calculator*** | ***Full calculator***|
 | -------------- | --------------- |
 | ![orign calculator](https://raw.githubusercontent.com/ledangquangdangquang/Caculator-qt-linux/refs/heads/main/assets/origin-calculator.png) | ![full calculator](https://raw.githubusercontent.com/ledangquangdangquang/Caculator-qt-linux/refs/heads/main/assets/full-calculator.png)|
 
+## Install
+See in releases.
 ## AppImage Build
 
 ### ✅ BƯỚC 1: **Build app ra thư mục AppDir (giả sử bạn build CMake ra build/)**
