@@ -12,6 +12,9 @@
 #include "parser/tokenizer.h"
 #include "parser/shuntingyard.h"
 #include "parser/evaluator.h"
+#include <QFileInfo>
+#include <QProcess>
+#include <QStringList>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -54,8 +57,10 @@ MainWindow::MainWindow(QWidget *parent)
     QShortcut* commaShortcut = new QShortcut(QKeySequence(Qt::Key_Comma), this); // real enter
     connect(commaShortcut, &QShortcut::activated, this, &MainWindow::dotHandle);
 
-    // Menu
+    // Menu clear history
     connect(ui->actionClear_history, &QAction::triggered, this, &MainWindow::handleClearHistory);
+    // Menu update app
+    connect(ui->actionUpdate, &QAction::triggered, this, &MainWindow::handleUpdate);
     // About...
     connect(ui->actionAbout, &QAction::triggered, this, &MainWindow::handleAbout);
 
@@ -78,6 +83,27 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
+// Update handle
+void MainWindow::handleUpdate() {
+    QString appPath = QCoreApplication::applicationFilePath();  // đường dẫn AppImage hiện tại
+    QString dir = QFileInfo(appPath).absolutePath();             // thư mục đang chạy
+
+    QString script = QString(R"(
+        cd "%1"
+        exec bash -c '
+            echo "🛠 Đang cập nhật Calculator..."
+            wget -O Calculator-x86_64.AppImage https://github.com/ledangquangdangquang/Caculator-qt-linux/releases/latest/download/BanPhimHost-x86_64.AppImage
+            chmod +x Calculator-x86_64.AppImage
+            echo "✅ Cập nhật xong. Đang khởi chạy lại..."
+            sleep 1
+            ./BanPhimHost-x86_64.AppImage
+        '
+    )").arg(dir);
+
+    QProcess::startDetached("x-terminal-emulator", QStringList() << "-e" << script);
+    QApplication::quit(); // đóng app hiện tại
+}
+
 // Hide or Show when resize (done)
 void MainWindow::resizeEvent(QResizeEvent *event)
 {

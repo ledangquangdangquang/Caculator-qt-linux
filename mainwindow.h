@@ -22,6 +22,7 @@ private slots:
     void dotHandle();
     void handleClearHistory();
     void handleAbout();
+    void handleUpdate();
     void resizeEvent(QResizeEvent *event);
 
 private:

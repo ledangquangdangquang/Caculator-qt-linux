@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>364</width>
+    <width>706</width>
     <height>639</height>
    </rect>
   </property>
@@ -979,7 +979,7 @@ QPushButton:pressed {
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>364</width>
+     <width>706</width>
      <height>25</height>
     </rect>
    </property>
@@ -991,6 +991,7 @@ QPushButton:pressed {
      <string>File</string>
     </property>
     <addaction name="actionClear_history"/>
+    <addaction name="actionUpdate"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
     <property name="title">
@@ -1010,6 +1011,11 @@ QPushButton:pressed {
   <action name="actionAbout">
    <property name="text">
     <string>About..</string>
+   </property>
+  </action>
+  <action name="actionUpdate">
+   <property name="text">
+    <string>Update</string>
    </property>
   </action>
  </widget>
