@@ -159,9 +159,12 @@ void MainWindow::on_key_equals_clicked()
     expr.replace(QChar(0x221A), "sqrt");
 
     // `%` handle (done)
-    static const QRegularExpression addMulPercent(R"((\d)(%))");
-    expr.replace(addMulPercent, R"(\1*\2)");
-    expr.replace("%", "0.01");
+//    static const QRegularExpression addMulPercent(R"((\d)(%))");
+//    expr.replace(addMulPercent, R"(\1*\2)");
+//    expr.replace("%", "0.01");
+    static const QRegularExpression percentRe(R"((\d+(?:\.\d+)?)%)");
+    expr.replace(percentRe, R"((\1*0.01))");
+
 
     // Pi handle (done)
     expr.replace("𝛑", "pi");
