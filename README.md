@@ -1,5 +1,6 @@
 <h1 align="center"> Caculator-qt-linux </h1>
 
+A light weight calculator app write by Qt.
 ## Demo
 | ***Origin calculator*** | ***Full calculator***|
 | -------------- | --------------- |
