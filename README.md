@@ -70,7 +70,6 @@ export PATH=/home/quang/qt6/host/bin:$PATH
 
 ### BƯỚC 6: **Chạy `linuxdeployqt`**
 
-> Chạy từ thư mục chứa `AppDir`
 
 ```bash
 ./linuxdeployqt-continuous-x86_64.AppImage AppDir/usr/bin/banPhimHost -appimage
