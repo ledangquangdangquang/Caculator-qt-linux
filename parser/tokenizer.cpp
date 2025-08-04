@@ -31,8 +31,6 @@ QVector<QString> Tokenizer::insertImplicitMultiplication(QVector<QString>& token
 
     return result;
 }
-
-
 // handle 6(2 = 6(2)
 QVector<QString> Tokenizer::fixMissingClosingParentheses(const QVector<QString>& tokens) {
     QVector<QString> fixedTokens = tokens;
@@ -58,11 +56,11 @@ QVector<QString> Tokenizer::tokenize(const QString& expr) {
     // Danh sách các từ khóa đặc biệt
     QStringList knownWords = {
         "pi", "e", "i",
+        "asin", "acos", "atan",
+        "sinh", "cosh", "tanh",
         "Re", "Im", "conj",
         "sqrt", "mod",
         "sin", "cos", "tan", "cot", "sec", "csc",
-        "asin", "acos", "atan",
-        "sinh", "cosh", "tanh",
         "log", "ln", "exp",
         "abs", "Arg"
     };
